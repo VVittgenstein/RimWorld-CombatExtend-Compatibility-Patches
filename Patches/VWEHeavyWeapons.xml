@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Weapons Expanded - Heavy Weapons</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <!-- VWE Heavy Weapons CE repairs are implemented via Harmony patches:
+                     - Patch_VerbLaunchProjectileCE_DurabilityLoss (per-shot weapon degradation)
+                     - Patch_VerbLaunchProjectileCE_SwarmMissileHoming (guided missile tracking)
+                     - Patch_VerbLaunchProjectileCE_SwarmMissileRetarget (burst target distribution)
+                     See Source/V2CEPatch/Harmony/ for implementation.
+                     No XML-level weapon def adjustments are required; the existing CE manual
+                     patches for weapon conversion and ammo binding are correct. -->
+            </operations>
+        </match>
+    </Operation>
+</Patch>

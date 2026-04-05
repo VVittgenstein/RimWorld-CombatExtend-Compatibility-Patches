@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Psycasts Expanded</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+
+                <!-- Op 1: Fix Eltex Cape armor - Replace broken StuffEffectMultiplierArmor back to ArmorRating_Sharp
+                     CE's patch replaced ArmorRating_Sharp with StuffEffectMultiplierArmor on this non-stuffable item, making it inert. -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="VPE_Apparel_EltexCape"]/statBases/StuffEffectMultiplierArmor</xpath>
+                    <value>
+                        <ArmorRating_Sharp>3</ArmorRating_Sharp>
+                    </value>
+                </li>
+
+                <!-- Op 2: Fix Eltex Cape - Add back ArmorRating_Blunt (removed by CE) -->
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="VPE_Apparel_EltexCape"]/statBases</xpath>
+                    <value>
+                        <ArmorRating_Blunt>2</ArmorRating_Blunt>
+                    </value>
+                </li>
+
+                <!-- Op 3: Fix FireBreath damage - namespace VFECore not VEF.Weapons -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/VFECore.ExpandableProjectileDef[defName="VPE_FireBreath"]/projectile/damageAmountBase</xpath>
+                    <value>
+                        <damageAmountBase>12</damageAmountBase>
+                    </value>
+                </li>
+
+                <!-- Op 4: Fix FireBreath speed -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/VFECore.ExpandableProjectileDef[defName="VPE_FireBreath"]/projectile/speed</xpath>
+                    <value>
+                        <speed>53</speed>
+                    </value>
+                </li>
+
+                <!-- Op 5: Fix IceBreathe speed -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/VFECore.ExpandableProjectileDef[defName="VPE_IceBreathe"]/projectile/speed</xpath>
+                    <value>
+                        <speed>48</speed>
+                    </value>
+                </li>
+
+                <!-- Op 6: Add skeleton CE melee stats -->
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="VPE_SummonedSkeleton"]/statBases</xpath>
+                    <value>
+                        <MeleeDodgeChance>0.19</MeleeDodgeChance>
+                        <MeleeCritChance>0.22</MeleeCritChance>
+                        <MeleeParryChance>0.09</MeleeParryChance>
+                        <SmokeSensitivity>0</SmokeSensitivity>
+                    </value>
+                </li>
+
+                <!-- Op 7a: Remap BladeFocus - Replace statFactors with CE-compatible stats -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="VPE_BladeFocus"]/stages/li/statFactors</xpath>
+                    <value>
+                        <statFactors>
+                            <MeleeCooldownFactor>0.5</MeleeCooldownFactor>
+                        </statFactors>
+                    </value>
+                </li>
+
+                <!-- Op 7b: Remap BladeFocus - Add statOffsets to the stage -->
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="VPE_BladeFocus"]/stages/li</xpath>
+                    <value>
+                        <statOffsets>
+                            <MeleeHitChance>5</MeleeHitChance>
+                            <MeleeCritChance>0.5</MeleeCritChance>
+                        </statOffsets>
+                    </value>
+                </li>
+
+                <!-- Op 8a: Remap ControlledFrenzy - Replace statFactors -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="VPE_ControlledFrenzy"]/stages/li/statFactors</xpath>
+                    <value>
+                        <statFactors>
+                            <MeleeCooldownFactor>0.75</MeleeCooldownFactor>
+                            <RangedCooldownFactor>0.75</RangedCooldownFactor>
+                        </statFactors>
+                    </value>
+                </li>
+
+                <!-- Op 8b: Remap ControlledFrenzy - Add statOffsets -->
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="VPE_ControlledFrenzy"]/stages/li</xpath>
+                    <value>
+                        <statOffsets>
+                            <MeleeHitChance>10</MeleeHitChance>
+                            <MeleeCritChance>1.0</MeleeCritChance>
+                            <AimingAccuracy>0.5</AimingAccuracy>
+                            <ReloadSpeed>1.0</ReloadSpeed>
+                        </statOffsets>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

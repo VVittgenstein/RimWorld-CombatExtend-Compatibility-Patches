@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<loadFolders>
+    <v1.6>
+        <!-- Always load: About, Assemblies, Patches (patches self-gate via PatchOperationFindMod) -->
+        <li>/</li>
+
+        <!-- Conditional Defs: only load when both CE and the target mod are active -->
+        <li IfModActive="det.phaseweaponry">Defs/PhaseWeaponry</li>
+        <li IfModActive="feaurie.GreyscytheBionics">Defs/GreyscytheBionicsCatalogue</li>
+        <li IfModActive="feaurie.GreyscytheGenes">Defs/GreyscytheCybergenetics</li>
+        <li IfModActive="slomow.P1000R">Defs/LandkreuzerP1000</li>
+        <li IfModActive="slomow.SloTurrettCollec">Defs/SloTurretCollection</li>
+    </v1.6>
+</loadFolders>

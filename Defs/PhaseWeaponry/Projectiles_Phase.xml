@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ==================== ThingCategory ==================== -->
+
+    <ThingCategoryDef>
+        <defName>AmmoPhaseEnergy</defName>
+        <label>phase energy cells</label>
+        <parent>AmmoAdvanced</parent>
+    </ThingCategoryDef>
+
+    <!-- ==================== AmmoSet ==================== -->
+
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_PhaseEnergy</defName>
+        <label>phase energy</label>
+        <ammoTypes>
+            <Ammo_PhaseEnergy>Bullet_PhaseEnergy</Ammo_PhaseEnergy>
+            <Ammo_PhaseEnergy_Focused>Bullet_PhaseEnergy_Focused</Ammo_PhaseEnergy_Focused>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- ==================== Ammo ==================== -->
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_PhaseEnergy</defName>
+        <label>phase energy cell</label>
+        <description>A compact cell containing focused phase energy. Used in phase weaponry for clean, high-penetration cutting damage.</description>
+        <statBases>
+            <Mass>0.015</Mass>
+            <Bulk>0.01</Bulk>
+        </statBases>
+        <thingCategories>
+            <li>AmmoPhaseEnergy</li>
+        </thingCategories>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_TableMachining</li>
+        </tradeTags>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>CombatExtended.AmmoClasses.Charged</ammoClass>
+    </ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_PhaseEnergy_Focused</defName>
+        <label>phase energy cell (focused)</label>
+        <description>A concentrated phase energy cell optimized for maximum armor penetration at the cost of raw damage output.</description>
+        <statBases>
+            <Mass>0.015</Mass>
+            <Bulk>0.01</Bulk>
+        </statBases>
+        <thingCategories>
+            <li>AmmoPhaseEnergy</li>
+        </thingCategories>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_TableMachining</li>
+        </tradeTags>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/AP</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>CombatExtended.AmmoClasses.ChargedAP</ammoClass>
+    </ThingDef>
+
+    <!-- ==================== Projectiles ==================== -->
+
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_PhaseEnergy</defName>
+        <label>phase energy blade</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_SmallBeam</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>DV_PhaseCut</damageDef>
+            <speed>140</speed>
+            <damageAmountBase>16</damageAmountBase>
+            <armorPenetrationSharp>20</armorPenetrationSharp>
+            <armorPenetrationBlunt>8</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_PhaseEnergy_Focused</defName>
+        <label>focused phase energy blade</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_SmallBeam</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>DV_PhaseCut</damageDef>
+            <speed>140</speed>
+            <damageAmountBase>12</damageAmountBase>
+            <armorPenetrationSharp>35</armorPenetrationSharp>
+            <armorPenetrationBlunt>6</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- ==================== Recipe ==================== -->
+
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeAmmo_PhaseEnergy</defName>
+        <label>make phase energy cells x500</label>
+        <description>Craft 500 phase energy cells.</description>
+        <jobString>Making phase energy cells.</jobString>
+        <workAmount>8000</workAmount>
+        <targetCountAdjustment>500</targetCountAdjustment>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>6</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Plasteel</li>
+                <li>Steel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_PhaseEnergy>500</Ammo_PhaseEnergy>
+        </products>
+        <skillRequirements>
+            <Crafting>7</Crafting>
+        </skillRequirements>
+        <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </RecipeDef>
+
+</Defs>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========== STC Laser Turret Ammo Definitions ========== -->
+    <!-- These AmmoSets map CE's existing Ammo_LaserChargePack to turret-specific laser projectiles. -->
+    <!-- No new AmmoDefs or RecipeDefs needed — all laser turrets consume Ammo_LaserChargePack. -->
+
+    <!-- ==================== AmmoSetDefs ==================== -->
+
+    <!-- Beamlance: Single precision laser for the Beamlance turret -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_Beamlance</defName>
+        <label>STC beamlance laser</label>
+        <ammoTypes>
+            <Ammo_LaserChargePack>Bullet_STC_Beamlance</Ammo_LaserChargePack>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- PrismBeam: Split-beam explosive laser for the Prism turret -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_PrismBeam</defName>
+        <label>STC prism beam</label>
+        <ammoTypes>
+            <Ammo_LaserChargePack>Bullet_STC_PrismBeam</Ammo_LaserChargePack>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- MoonBeam: Suppression beam for the MoonBeam turret -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_MoonBeam</defName>
+        <label>STC moon beam</label>
+        <ammoTypes>
+            <Ammo_LaserChargePack>Bullet_STC_MoonBeam</Ammo_LaserChargePack>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- SmiteBeam: Endgame cascade laser for the SmiteBeam turret -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_SmiteBeam</defName>
+        <label>STC smite beam</label>
+        <ammoTypes>
+            <Ammo_LaserChargePack>Bullet_STC_SmiteBeam</Ammo_LaserChargePack>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- ==================== Laser Projectile ThingDefs ==================== -->
+
+    <!-- Beamlance laser: high-damage single-target precision beam (red) -->
+    <ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" ParentName="BaseLaserBullet">
+        <defName>Bullet_STC_Beamlance</defName>
+        <label>beamlance laser</label>
+        <textures>
+            <li>Things/Projectile/Laser_CE</li>
+        </textures>
+        <graphicData>
+            <color>(255,100,100)</color>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>30</damageAmountBase>
+            <armorPenetrationSharp>35</armorPenetrationSharp>
+            <armorPenetrationBlunt>0.001</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Prism beam: split-beam explosive laser (purple) -->
+    <ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" ParentName="BaseLaserBullet">
+        <defName>Bullet_STC_PrismBeam</defName>
+        <label>prism beam</label>
+        <textures>
+            <li>Things/Projectile/Laser_CE</li>
+        </textures>
+        <graphicData>
+            <color>(200,100,255)</color>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>STC_Prism</damageDef>
+            <damageAmountBase>20</damageAmountBase>
+            <armorPenetrationSharp>20</armorPenetrationSharp>
+            <armorPenetrationBlunt>0.001</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Moon beam: suppression beam with low damage (white-blue) -->
+    <ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" ParentName="BaseLaserBullet">
+        <defName>Bullet_STC_MoonBeam</defName>
+        <label>moon beam</label>
+        <textures>
+            <li>Things/Projectile/Laser_CE</li>
+        </textures>
+        <graphicData>
+            <color>(200,200,255)</color>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>1</damageAmountBase>
+            <armorPenetrationSharp>5</armorPenetrationSharp>
+            <armorPenetrationBlunt>0.001</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Smite beam: endgame cascade laser with extreme damage (blue) -->
+    <ThingDef Class="CombatExtended.Lasers.LaserBeamDefCE" ParentName="BaseLaserBullet">
+        <defName>Bullet_STC_SmiteBeam</defName>
+        <label>smite beam</label>
+        <textures>
+            <li>Things/Projectile/Laser_CE</li>
+        </textures>
+        <graphicData>
+            <color>(100,200,255)</color>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>STC_SmiteBeam</damageDef>
+            <damageAmountBase>40</damageAmountBase>
+            <armorPenetrationSharp>45</armorPenetrationSharp>
+            <armorPenetrationBlunt>0.001</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+</Defs>

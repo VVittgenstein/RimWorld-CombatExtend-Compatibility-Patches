@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>RimThunder - Core</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <!-- LMG: 5.56x45mm NATO ammo binding -->
+                <li Class="PatchOperationAddModExtension">
+                    <xpath>Defs/Vehicles.VehicleTurretDef[@Name="RT_BaseVehicleMG_Light"]</xpath>
+                    <value>
+                        <li Class="Vehicles.CETurretDataDefModExtension">
+                            <ammoSet>AmmoSet_556x45mmNATO</ammoSet>
+                            <shotHeight>1.5</shotHeight>
+                            <sway>0.8</sway>
+                            <spread>0.07</spread>
+                            <recoil>0.5</recoil>
+                        </li>
+                    </value>
+                </li>
+                <!-- MMG: 7.62x51mm NATO ammo binding -->
+                <li Class="PatchOperationAddModExtension">
+                    <xpath>Defs/Vehicles.VehicleTurretDef[@Name="RT_BaseVehicleMG_Medium"]</xpath>
+                    <value>
+                        <li Class="Vehicles.CETurretDataDefModExtension">
+                            <ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+                            <shotHeight>1.5</shotHeight>
+                            <sway>1.0</sway>
+                            <spread>0.05</spread>
+                            <recoil>0.8</recoil>
+                        </li>
+                    </value>
+                </li>
+                <!-- HMG: .50 BMG (12.7x99mm) ammo binding -->
+                <li Class="PatchOperationAddModExtension">
+                    <xpath>Defs/Vehicles.VehicleTurretDef[@Name="RT_BaseVehicleMG_Heavy"]</xpath>
+                    <value>
+                        <li Class="Vehicles.CETurretDataDefModExtension">
+                            <ammoSet>AmmoSet_50BMG</ammoSet>
+                            <shotHeight>1.5</shotHeight>
+                            <sway>1.4</sway>
+                            <spread>0.02</spread>
+                            <recoil>1.2</recoil>
+                        </li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- CE projectile defs for Greyscythe Bionics Catalogue ranged hediff weapons.
+         Loaded conditionally via LoadFolders.xml when feaurie.GreyscytheBionics is active.
+         Non-ammo-using body-integrated weapons: no AmmoSetDef required. -->
+
+    <!-- Medieval: Handbow bolt (safe defName to avoid Crossbow_Bolt collision) -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>GS_Handbow_Bolt_CE</defName>
+        <label>hand crossbow bolt</label>
+        <graphicData>
+            <texPath>Things/Projectile/Arrow_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>ArrowHighVelocity</damageDef>
+            <speed>40</speed>
+            <damageAmountBase>8</damageAmountBase>
+            <armorPenetrationSharp>0.6</armorPenetrationSharp>
+            <armorPenetrationBlunt>3.5</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Industrial: Hand-cannon bullet -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>GS_Handcannon_Bullet_CE</defName>
+        <label>hand-cannon bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <speed>80</speed>
+            <damageAmountBase>15</damageAmountBase>
+            <armorPenetrationSharp>4</armorPenetrationSharp>
+            <armorPenetrationBlunt>12</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Industrial: Machinegun-arm bullet -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>GS_MachinegunArm_Bullet_CE</defName>
+        <label>machinegun-arm bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <speed>75</speed>
+            <damageAmountBase>12</damageAmountBase>
+            <armorPenetrationSharp>3</armorPenetrationSharp>
+            <armorPenetrationBlunt>18</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Industrial: Launcher-arm grenade -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>GS_LauncherArm_Grenade_CE</defName>
+        <label>launcher-arm grenade</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/LauncherShot</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bomb</damageDef>
+            <speed>35</speed>
+            <damageAmountBase>20</damageAmountBase>
+            <explosionRadius>2.0</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Spacer: Transform hand-cannon bullet -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>GS_Handcannon_Spacer_Bullet_CE</defName>
+        <label>spacer hand-cannon bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <speed>100</speed>
+            <damageAmountBase>18</damageAmountBase>
+            <armorPenetrationSharp>8</armorPenetrationSharp>
+            <armorPenetrationBlunt>18</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Spacer: Transform machinegun-arm bullet -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>GS_MachinegunArm_Transform_Bullet_CE</defName>
+        <label>spacer machinegun-arm bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <speed>90</speed>
+            <damageAmountBase>14</damageAmountBase>
+            <armorPenetrationSharp>6</armorPenetrationSharp>
+            <armorPenetrationBlunt>22</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Spacer: Transform launcher-arm grenade -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>GS_LauncherArm_Transform_Grenade_CE</defName>
+        <label>spacer launcher-arm grenade</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/LauncherShot</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bomb</damageDef>
+            <speed>40</speed>
+            <damageAmountBase>25</damageAmountBase>
+            <explosionRadius>2.0</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Ultra: Bioturret bullet (shared by shoulder and hip turrets) -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>GS_Bioturret_Bullet_CE</defName>
+        <label>bionic turret bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <speed>100</speed>
+            <damageAmountBase>10</damageAmountBase>
+            <armorPenetrationSharp>8</armorPenetrationSharp>
+            <armorPenetrationBlunt>15</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+</Defs>

@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- Greyscythe Bionics Catalogue CE compatibility patch.
+         Converts melee Tool to ToolCE, ranged Verb_Shoot to Verb_ShootCE,
+         and adds damageFactors for armor implant CE functionality.
+         All ranged hediff weapons are non-ammo-using (body-integrated). -->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Greyscythe Bionics Catalogue</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+
+                <!-- ============================================================ -->
+                <!-- SECTION 1: Melee Tool -> ToolCE Conversions                  -->
+                <!-- ============================================================ -->
+
+                <!-- === 1.1 Neolithic Tier === -->
+
+                <!-- GS_Hediff_Clubfist: club (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_Clubfist"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>club</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>16</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+                                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_Hediff_Ikwafist: point (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_Ikwafist"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>point</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>16</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.2</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.4</armorPenetrationBlunt>
+                                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_Hediff_spikecrown: spikecrown (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_spikecrown"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>spikecrown</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>15</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.15</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.3</armorPenetrationBlunt>
+                                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- === 1.2 Medieval Tier === -->
+
+                <!-- GS_Hediff_macefist: club (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_macefist"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>club</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>18</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+                                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_Hediff_swordhand: point (Stab) + edge (Cut) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_swordhand"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>point</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>18</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.5</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.6</armorPenetrationBlunt>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>edge</label>
+                                <capacities><li>Cut</li></capacities>
+                                <power>18</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.4</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_Hediff_axehand: head (Cut) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_axehand"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>head</label>
+                                <capacities><li>Cut</li></capacities>
+                                <power>18</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.35</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.7</armorPenetrationBlunt>
+                                <labelUsedInLogging>true</labelUsedInLogging>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_handbow: fist (Blunt) — melee tool on ranged hediff -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_handbow"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>fist</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>8.2</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.4</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_Hediff_battlearm: spike (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_battlearm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>spike</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>14</power>
+                                <cooldownTime>1.4</cooldownTime>
+                                <armorPenetrationSharp>0.3</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_Hediff_battleleg: spike (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_battleleg"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>spike</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>14</power>
+                                <cooldownTime>1.4</cooldownTime>
+                                <armorPenetrationSharp>0.3</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_Hediff_beastjaw: fangs (Bite) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_beastjaw"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>fangs</label>
+                                <capacities><li>Bite</li></capacities>
+                                <power>18</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.4</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.6</armorPenetrationBlunt>
+                                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- === 1.3 Industrial Tier (melee-only hediffs) === -->
+
+                <!-- GS_Hediff_pilebunkerarm: limb (Blunt) + stake (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_pilebunkerarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>limb</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>10</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>stake</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>34</power>
+                                <cooldownTime>4.5</cooldownTime>
+                                <armorPenetrationSharp>2</armorPenetrationSharp>
+                                <armorPenetrationBlunt>3.5</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_Hediff_chainsawarm: limb (Blunt) + chainsaw (Cut) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_chainsawarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>limb</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>10</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>chainsaw</label>
+                                <capacities><li>Cut</li></capacities>
+                                <power>28</power>
+                                <cooldownTime>2.8</cooldownTime>
+                                <armorPenetrationSharp>1.2</armorPenetrationSharp>
+                                <armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+                                <labelUsedInLogging>true</labelUsedInLogging>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_miningarm: pick (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_miningarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>pick</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>18</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.8</armorPenetrationSharp>
+                                <armorPenetrationBlunt>1.2</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_mediarm: scalpel (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_mediarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>scalpel</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>9</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.2</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.3</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_culiarm: slicer (Cut) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_culiarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>slicer</label>
+                                <capacities><li>Cut</li></capacities>
+                                <power>14</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.3</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.45</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_builderarm: hammer (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_builderarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>hammer</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>18</power>
+                                <cooldownTime>2.5</cooldownTime>
+                                <armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_autoloaderarm: fist (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_autoloaderarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>fist</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>8.2</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- === 1.4 Industrial Tier (melee tools on ranged hediffs) === -->
+
+                <!-- GS_hediff_handcannon: barrel (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_handcannon"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>barrel</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>10</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_machinegunarm: fist (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_machinegunarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>fist</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>8.2</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_launcherarm: barrel (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_launcherarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>barrel</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>10</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- === 1.5 Spacer Tier (melee-only hediffs) === -->
+
+                <!-- GS_hediff_miningarm_spacer: drill (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_miningarm_spacer"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>drill</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>24</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>1.2</armorPenetrationSharp>
+                                <armorPenetrationBlunt>2</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_mediarm_spacer: scalpel (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_mediarm_spacer"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>scalpel</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>11</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>0.3</armorPenetrationSharp>
+                                <armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_builderarm_spacer: hammer (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_builderarm_spacer"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>hammer</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>18</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>1.5</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_Hediff_beamblade: point (Stab) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_beamblade"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>point</label>
+                                <capacities><li>Stab</li></capacities>
+                                <power>22</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>1.5</armorPenetrationSharp>
+                                <armorPenetrationBlunt>1.8</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- === 1.6 Spacer Tier (melee tools on ranged hediffs) === -->
+
+                <!-- GS_hediff_handcannon_transform: barrel (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_handcannon_transform"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>barrel</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>10</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>1</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_machinegunarm_transform: fist (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_machinegunarm_transform"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>fist</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>8.2</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- GS_hediff_launcherarm_transform: barrel (Blunt) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_launcherarm_transform"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>barrel</label>
+                                <capacities><li>Blunt</li></capacities>
+                                <power>10</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationBlunt>1</armorPenetrationBlunt>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- === 1.7 Ultra Tier === -->
+
+                <!-- GS_hediff_ripjaw: ripjaw (Bite) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_ripjaw"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>ripjaw</label>
+                                <capacities><li>Bite</li></capacities>
+                                <power>28</power>
+                                <cooldownTime>2</cooldownTime>
+                                <armorPenetrationSharp>1.8</armorPenetrationSharp>
+                                <armorPenetrationBlunt>3</armorPenetrationBlunt>
+                                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!-- ============================================================ -->
+                <!-- SECTION 2: Ranged Verb_Shoot -> Verb_ShootCE Conversions     -->
+                <!-- Projectile defs in Defs/GreyscytheBionicsCatalogue/           -->
+                <!-- All are non-ammo-using (body-integrated weapons)              -->
+                <!-- ============================================================ -->
+
+                <!-- === 2.1 Medieval: Handbow === -->
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_handbow"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/verbs</xpath>
+                    <value>
+                        <verbs>
+                            <li Class="CombatExtended.VerbPropertiesCE">
+                                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GS_Handbow_Bolt_CE</defaultProjectile>
+                                <warmupTime>3</warmupTime>
+                                <range>18</range>
+                                <burstShotCount>1</burstShotCount>
+                                <soundCast>Bow_Recurve</soundCast>
+                                <ejectsCasings>false</ejectsCasings>
+                            </li>
+                        </verbs>
+                    </value>
+                </li>
+
+                <!-- === 2.2 Industrial: Hand-cannon === -->
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_handcannon"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/verbs</xpath>
+                    <value>
+                        <verbs>
+                            <li Class="CombatExtended.VerbPropertiesCE">
+                                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GS_Handcannon_Bullet_CE</defaultProjectile>
+                                <warmupTime>2.6</warmupTime>
+                                <range>18</range>
+                                <ticksBetweenBurstShots>35</ticksBetweenBurstShots>
+                                <burstShotCount>6</burstShotCount>
+                                <soundCast>Shot_Revolver</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <ejectsCasings>false</ejectsCasings>
+                            </li>
+                        </verbs>
+                    </value>
+                </li>
+
+                <!-- === 2.3 Industrial: Machinegun-arm === -->
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_machinegunarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/verbs</xpath>
+                    <value>
+                        <verbs>
+                            <li Class="CombatExtended.VerbPropertiesCE">
+                                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GS_MachinegunArm_Bullet_CE</defaultProjectile>
+                                <warmupTime>3.2</warmupTime>
+                                <range>25.9</range>
+                                <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                <burstShotCount>6</burstShotCount>
+                                <soundCast>Shot_Minigun</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <ejectsCasings>false</ejectsCasings>
+                            </li>
+                        </verbs>
+                    </value>
+                </li>
+
+                <!-- === 2.4 Industrial: Launcher-arm === -->
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_launcherarm"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/verbs</xpath>
+                    <value>
+                        <verbs>
+                            <li Class="CombatExtended.VerbPropertiesCE">
+                                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GS_LauncherArm_Grenade_CE</defaultProjectile>
+                                <warmupTime>4</warmupTime>
+                                <range>25</range>
+                                <forcedMissRadius>1.9</forcedMissRadius>
+                                <ticksBetweenBurstShots>60</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>Shot_IncendiaryLauncher</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>14</muzzleFlashScale>
+                                <ejectsCasings>false</ejectsCasings>
+                            </li>
+                        </verbs>
+                    </value>
+                </li>
+
+                <!-- === 2.5 Spacer: Transform hand-cannon === -->
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_handcannon_transform"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/verbs</xpath>
+                    <value>
+                        <verbs>
+                            <li Class="CombatExtended.VerbPropertiesCE">
+                                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GS_Handcannon_Spacer_Bullet_CE</defaultProjectile>
+                                <warmupTime>2.6</warmupTime>
+                                <range>18</range>
+                                <ticksBetweenBurstShots>35</ticksBetweenBurstShots>
+                                <burstShotCount>6</burstShotCount>
+                                <soundCast>Shot_Revolver</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <ejectsCasings>false</ejectsCasings>
+                            </li>
+                        </verbs>
+                    </value>
+                </li>
+
+                <!-- === 2.6 Spacer: Transform machinegun-arm === -->
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_machinegunarm_transform"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/verbs</xpath>
+                    <value>
+                        <verbs>
+                            <li Class="CombatExtended.VerbPropertiesCE">
+                                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GS_MachinegunArm_Transform_Bullet_CE</defaultProjectile>
+                                <warmupTime>3.2</warmupTime>
+                                <range>32</range>
+                                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                <burstShotCount>6</burstShotCount>
+                                <soundCast>Shot_Minigun</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>11</muzzleFlashScale>
+                                <ejectsCasings>false</ejectsCasings>
+                            </li>
+                        </verbs>
+                    </value>
+                </li>
+
+                <!-- === 2.7 Spacer: Transform launcher-arm === -->
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_launcherarm_transform"]/comps/li[@Class="HediffCompProperties_VerbGiver"]/verbs</xpath>
+                    <value>
+                        <verbs>
+                            <li Class="CombatExtended.VerbPropertiesCE">
+                                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GS_LauncherArm_Transform_Grenade_CE</defaultProjectile>
+                                <warmupTime>4</warmupTime>
+                                <range>32</range>
+                                <forcedMissRadius>1.6</forcedMissRadius>
+                                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>Shot_IncendiaryLauncher</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>14</muzzleFlashScale>
+                                <ejectsCasings>false</ejectsCasings>
+                            </li>
+                        </verbs>
+                    </value>
+                </li>
+
+                <!-- === 2.8 Ultra: Shoulder turret (MVCF ExtendedVerbGiver) === -->
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_shouldergun_ultra"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+                    <value>
+                        <verbs>
+                            <li Class="CombatExtended.VerbPropertiesCE">
+                                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                                <label>Shouldergun</label>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GS_Bioturret_Bullet_CE</defaultProjectile>
+                                <warmupTime>2</warmupTime>
+                                <range>28.9</range>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>GunShotA</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <ejectsCasings>false</ejectsCasings>
+                            </li>
+                        </verbs>
+                    </value>
+                </li>
+
+                <!-- === 2.9 Ultra: Hip turret (MVCF ExtendedVerbGiver) === -->
+
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_hipgun_ultra"]/comps/li[@Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver"]/verbs</xpath>
+                    <value>
+                        <verbs>
+                            <li Class="CombatExtended.VerbPropertiesCE">
+                                <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                                <label>Hipgun</label>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GS_Bioturret_Bullet_CE</defaultProjectile>
+                                <warmupTime>2</warmupTime>
+                                <range>28.9</range>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>GunShotA</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <ejectsCasings>false</ejectsCasings>
+                            </li>
+                        </verbs>
+                    </value>
+                </li>
+
+                <!-- ============================================================ -->
+                <!-- SECTION 3: Armor Implant damageFactors for CE Functionality  -->
+                <!-- ArmorRating_* stat offsets remain for display/AI evaluation.  -->
+                <!-- damageFactors provide actual CE damage reduction.             -->
+                <!-- ============================================================ -->
+
+                <!-- === 3.1 Spacer: Carapace (new damageFactors) === -->
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_carapace"]/stages/li</xpath>
+                    <value>
+                        <damageFactors>
+                            <Bullet>0.75</Bullet>
+                            <Cut>0.70</Cut>
+                            <Stab>0.70</Stab>
+                            <Scratch>0.75</Scratch>
+                            <Blunt>0.80</Blunt>
+                            <Flame>0.90</Flame>
+                        </damageFactors>
+                    </value>
+                </li>
+
+                <!-- === 3.2 Spacer: Plasteel Ribcage (new damageFactors) === -->
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_plasteelrib"]/stages/li</xpath>
+                    <value>
+                        <damageFactors>
+                            <Bullet>0.90</Bullet>
+                            <Cut>0.90</Cut>
+                            <Stab>0.90</Stab>
+                            <Blunt>0.80</Blunt>
+                        </damageFactors>
+                    </value>
+                </li>
+
+                <!-- === 3.3 Ultra: Flameblock (new damageFactors) === -->
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_flameblock"]/stages/li</xpath>
+                    <value>
+                        <damageFactors>
+                            <Flame>0.50</Flame>
+                            <Burn>0.50</Burn>
+                        </damageFactors>
+                    </value>
+                </li>
+
+                <!-- === 3.4 Ultra: Enhanced Trachea (new damageFactors) === -->
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_enhancedtrach"]/stages/li</xpath>
+                    <value>
+                        <damageFactors>
+                            <Bullet>0.85</Bullet>
+                            <Cut>0.85</Cut>
+                            <Blunt>0.85</Blunt>
+                        </damageFactors>
+                    </value>
+                </li>
+
+                <!-- === 3.5 Ultra: Central Shield (extend existing damageFactors) === -->
+                <!-- Existing: Bullet 0.6, Arrow 0.6, Stab 0.7 -->
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_centralshield"]/stages/li/damageFactors</xpath>
+                    <value>
+                        <Cut>0.70</Cut>
+                        <Blunt>0.85</Blunt>
+                        <Flame>0.85</Flame>
+                    </value>
+                </li>
+
+                <!-- === 3.6 Ultra: Exoshield (extend existing damageFactors) === -->
+                <!-- Existing: Cut 0.75, Scratch 0.75, ScratchToxic 0.75, Bite 0.75, ToxicBite 0.75 -->
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_exoshield"]/stages/li/damageFactors</xpath>
+                    <value>
+                        <Bullet>0.80</Bullet>
+                        <Blunt>0.75</Blunt>
+                        <Flame>0.85</Flame>
+                    </value>
+                </li>
+
+                <!-- === 3.7 Ultra: Organ Exoshield (extend existing damageFactors) === -->
+                <!-- Existing: Crush 0.75, Blunt 0.75, Poke 0.75, Thump 0.75, Bomb 0.75, BombSuper 0.75, Stun 0.75 -->
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="GS_hediff_organexoshield"]/stages/li/damageFactors</xpath>
+                    <value>
+                        <Bullet>0.85</Bullet>
+                        <Cut>0.90</Cut>
+                        <Flame>0.80</Flame>
+                    </value>
+                </li>
+
+                <!-- === 3.8 Hyper: Skelemuscle (new damageFactors) === -->
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_skelemuscle"]/stages/li</xpath>
+                    <value>
+                        <damageFactors>
+                            <Bullet>0.85</Bullet>
+                            <Cut>0.85</Cut>
+                            <Stab>0.85</Stab>
+                            <Blunt>0.85</Blunt>
+                        </damageFactors>
+                    </value>
+                </li>
+
+                <!-- === 3.9 Hyper: Ambiskull (new damageFactors) === -->
+
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="GS_Hediff_ambiskull"]/stages/li</xpath>
+                    <value>
+                        <damageFactors>
+                            <Bullet>0.85</Bullet>
+                            <Cut>0.85</Cut>
+                            <Stab>0.85</Stab>
+                            <Blunt>0.85</Blunt>
+                            <Flame>0.85</Flame>
+                        </damageFactors>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+</Patch>

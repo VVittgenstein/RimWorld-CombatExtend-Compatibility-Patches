@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <!-- Gate all operations on both CE and Greyscythe Cybergenetics being active -->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+            <li>Greyscythe Cybergenetics</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+                <!-- ============================================================ -->
+                <!-- GG_Cyborg gene: MeleeHitChance +10 → +0.10 (CE scale)       -->
+                <!-- ============================================================ -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/GeneDef[defName="GG_Cyborg"]/statOffsets/MeleeHitChance</xpath>
+                    <value>
+                        <MeleeHitChance>0.10</MeleeHitChance>
+                    </value>
+                </li>
+
+                <!-- ============================================================ -->
+                <!-- GS_OverdriveHediff: ShootingAccuracyPawn +10 → +1.0          -->
+                <!-- ============================================================ -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/HediffDef[defName="GS_OverdriveHediff"]/stages/li/statOffsets/ShootingAccuracyPawn</xpath>
+                    <value>
+                        <ShootingAccuracyPawn>1.0</ShootingAccuracyPawn>
+                    </value>
+                </li>
+
+                <!-- ============================================================ -->
+                <!-- GS_OverdriveHediff: MeleeHitChance +10 → +0.15              -->
+                <!-- ============================================================ -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/HediffDef[defName="GS_OverdriveHediff"]/stages/li/statOffsets/MeleeHitChance</xpath>
+                    <value>
+                        <MeleeHitChance>0.15</MeleeHitChance>
+                    </value>
+                </li>
+
+                <!-- ============================================================ -->
+                <!-- GS_OverdriveHediff: MeleeDamageFactor 1.75 → 1.50            -->
+                <!-- ============================================================ -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/HediffDef[defName="GS_OverdriveHediff"]/stages/li/statFactors/MeleeDamageFactor</xpath>
+                    <value>
+                        <MeleeDamageFactor>1.50</MeleeDamageFactor>
+                    </value>
+                </li>
+
+                <!-- ============================================================ -->
+                <!-- GS_OverdriveHediff: Remove MeleeArmorPenetration 1.5x        -->
+                <!-- (replaced by StatPart_CyberneticMeleePen on                  -->
+                <!--  MeleePenetrationFactor via C# injection)                    -->
+                <!-- ============================================================ -->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/HediffDef[defName="GS_OverdriveHediff"]/stages/li/statFactors/MeleeArmorPenetration</xpath>
+                </li>
+
+                <!-- ============================================================ -->
+                <!-- GS_ChargeBoostHediff: Remove direct MeleeDodgeChance offset  -->
+                <!-- Under CE, melee dodge is handled exclusively by              -->
+                <!-- StatPart_CyberneticMeleeDodge to avoid double-counting       -->
+                <!-- (see dossier 4.2 / master plan 5.2)                         -->
+                <!-- ============================================================ -->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/HediffDef[defName="GS_ChargeBoostHediff"]/stages/li/statOffsets/MeleeDodgeChance</xpath>
+                </li>
+
+                <!-- ============================================================ -->
+                <!-- GS_GuardianHediff: IncomingDamageFactor 0.3 → 0.55           -->
+                <!-- (prevents immunity-tier tankiness under CE armor stacking)   -->
+                <!-- ============================================================ -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/HediffDef[defName="GS_GuardianHediff"]/stages/li/statFactors/IncomingDamageFactor</xpath>
+                    <value>
+                        <IncomingDamageFactor>0.55</IncomingDamageFactor>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

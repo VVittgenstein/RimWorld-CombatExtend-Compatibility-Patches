@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    EndlessGrowth CE compatibility patch
+    Extends ReloadSpeed and AimingDelayFactor valuesPerLevel from 21 to 101 entries
+    to support skill levels beyond 20 added by EndlessGrowth (SlimeSenpai.EndlessGrowth).
+
+    ReloadSpeed levels 21-100: f(L) = 1.50 + 0.50 * (1 - e^(-0.05 * (L - 20))), cap ~2.0
+    AimingDelayFactor levels 21-100: g(L) = 0.75 - 0.25 * (1 - e^(-0.05 * (L - 20))), floor ~0.50
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+            <li>EndlessGrowth</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+
+                <!-- ============================================================
+                     Op 1: ReloadSpeed - extend valuesPerLevel to 101 entries
+                     ============================================================ -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/StatDef[defName="ReloadSpeed"]/skillNeedFactors/li[@Class="SkillNeed_Direct"]/valuesPerLevel</xpath>
+                    <value>
+                        <valuesPerLevel>
+                            <!-- Level 0 -->
+                            <li>0.75</li>
+                            <li>0.8</li>
+                            <li>0.85</li>
+                            <li>0.9</li>
+                            <li>0.95</li>
+                            <!-- Level 5 -->
+                            <li>0.975</li>
+                            <li>1</li>
+                            <li>1.025</li>
+                            <li>1.05</li>
+                            <li>1.075</li>
+                            <!-- Level 10 -->
+                            <li>1.1</li>
+                            <li>1.13333</li>
+                            <li>1.16667</li>
+                            <li>1.2</li>
+                            <li>1.23333</li>
+                            <!-- Level 15 -->
+                            <li>1.26667</li>
+                            <li>1.3</li>
+                            <li>1.35</li>
+                            <li>1.4</li>
+                            <li>1.45</li>
+                            <!-- Level 20 -->
+                            <li>1.5</li>
+                            <!-- Level 21: extension starts -->
+                            <li>1.524</li>
+                            <li>1.548</li>
+                            <li>1.570</li>
+                            <li>1.591</li>
+                            <!-- Level 25 -->
+                            <li>1.611</li>
+                            <li>1.630</li>
+                            <li>1.648</li>
+                            <li>1.665</li>
+                            <li>1.681</li>
+                            <!-- Level 30 -->
+                            <li>1.697</li>
+                            <li>1.712</li>
+                            <li>1.726</li>
+                            <li>1.739</li>
+                            <li>1.752</li>
+                            <!-- Level 35 -->
+                            <li>1.764</li>
+                            <li>1.775</li>
+                            <li>1.786</li>
+                            <li>1.797</li>
+                            <li>1.807</li>
+                            <!-- Level 40 -->
+                            <li>1.816</li>
+                            <li>1.825</li>
+                            <li>1.834</li>
+                            <li>1.842</li>
+                            <li>1.849</li>
+                            <!-- Level 45 -->
+                            <li>1.857</li>
+                            <li>1.864</li>
+                            <li>1.870</li>
+                            <li>1.877</li>
+                            <li>1.883</li>
+                            <!-- Level 50 -->
+                            <li>1.888</li>
+                            <li>1.894</li>
+                            <li>1.899</li>
+                            <li>1.904</li>
+                            <li>1.909</li>
+                            <!-- Level 55 -->
+                            <li>1.913</li>
+                            <li>1.917</li>
+                            <li>1.921</li>
+                            <li>1.925</li>
+                            <li>1.929</li>
+                            <!-- Level 60 -->
+                            <li>1.932</li>
+                            <li>1.936</li>
+                            <li>1.939</li>
+                            <li>1.942</li>
+                            <li>1.945</li>
+                            <!-- Level 65 -->
+                            <li>1.947</li>
+                            <li>1.950</li>
+                            <li>1.952</li>
+                            <li>1.955</li>
+                            <li>1.957</li>
+                            <!-- Level 70 -->
+                            <li>1.959</li>
+                            <li>1.961</li>
+                            <li>1.963</li>
+                            <li>1.965</li>
+                            <li>1.966</li>
+                            <!-- Level 75 -->
+                            <li>1.968</li>
+                            <li>1.970</li>
+                            <li>1.971</li>
+                            <li>1.972</li>
+                            <li>1.974</li>
+                            <!-- Level 80 -->
+                            <li>1.975</li>
+                            <li>1.976</li>
+                            <li>1.977</li>
+                            <li>1.979</li>
+                            <li>1.980</li>
+                            <!-- Level 85 -->
+                            <li>1.981</li>
+                            <li>1.982</li>
+                            <li>1.982</li>
+                            <li>1.983</li>
+                            <li>1.984</li>
+                            <!-- Level 90 -->
+                            <li>1.985</li>
+                            <li>1.986</li>
+                            <li>1.987</li>
+                            <li>1.987</li>
+                            <li>1.988</li>
+                            <!-- Level 95 -->
+                            <li>1.988</li>
+                            <li>1.989</li>
+                            <li>1.989</li>
+                            <li>1.990</li>
+                            <li>1.990</li>
+                            <!-- Level 100 -->
+                            <li>1.991</li>
+                        </valuesPerLevel>
+                    </value>
+                </li>
+
+                <!-- ============================================================
+                     Op 2: AimingDelayFactor - extend valuesPerLevel to 101 entries
+                     ============================================================ -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/StatDef[defName="AimingDelayFactor"]/skillNeedFactors/li[@Class="SkillNeed_Direct"]/valuesPerLevel</xpath>
+                    <value>
+                        <valuesPerLevel>
+                            <!-- Level 0 -->
+                            <li>1.25</li>
+                            <li>1.2</li>
+                            <li>1.17</li>
+                            <li>1.15</li>
+                            <li>1.12</li>
+                            <!-- Level 5 -->
+                            <li>1.09</li>
+                            <li>1.06</li>
+                            <li>1.03</li>
+                            <li>1.0</li>
+                            <li>0.98</li>
+                            <!-- Level 10 -->
+                            <li>0.96</li>
+                            <li>0.94</li>
+                            <li>0.92</li>
+                            <li>0.90</li>
+                            <li>0.88</li>
+                            <!-- Level 15 -->
+                            <li>0.86</li>
+                            <li>0.84</li>
+                            <li>0.82</li>
+                            <li>0.80</li>
+                            <li>0.78</li>
+                            <!-- Level 20 -->
+                            <li>0.75</li>
+                            <!-- Level 21: extension starts -->
+                            <li>0.738</li>
+                            <li>0.726</li>
+                            <li>0.715</li>
+                            <li>0.705</li>
+                            <!-- Level 25 -->
+                            <li>0.695</li>
+                            <li>0.685</li>
+                            <li>0.676</li>
+                            <li>0.668</li>
+                            <li>0.659</li>
+                            <!-- Level 30 -->
+                            <li>0.652</li>
+                            <li>0.644</li>
+                            <li>0.637</li>
+                            <li>0.631</li>
+                            <li>0.624</li>
+                            <!-- Level 35 -->
+                            <li>0.618</li>
+                            <li>0.612</li>
+                            <li>0.607</li>
+                            <li>0.602</li>
+                            <li>0.597</li>
+                            <!-- Level 40 -->
+                            <li>0.592</li>
+                            <li>0.587</li>
+                            <li>0.583</li>
+                            <li>0.579</li>
+                            <li>0.575</li>
+                            <!-- Level 45 -->
+                            <li>0.572</li>
+                            <li>0.568</li>
+                            <li>0.565</li>
+                            <li>0.562</li>
+                            <li>0.559</li>
+                            <!-- Level 50 -->
+                            <li>0.556</li>
+                            <li>0.553</li>
+                            <li>0.550</li>
+                            <li>0.548</li>
+                            <li>0.546</li>
+                            <!-- Level 55 -->
+                            <li>0.543</li>
+                            <li>0.541</li>
+                            <li>0.539</li>
+                            <li>0.537</li>
+                            <li>0.536</li>
+                            <!-- Level 60 -->
+                            <li>0.534</li>
+                            <li>0.532</li>
+                            <li>0.531</li>
+                            <li>0.529</li>
+                            <li>0.528</li>
+                            <!-- Level 65 -->
+                            <li>0.526</li>
+                            <li>0.525</li>
+                            <li>0.524</li>
+                            <li>0.523</li>
+                            <li>0.522</li>
+                            <!-- Level 70 -->
+                            <li>0.521</li>
+                            <li>0.520</li>
+                            <li>0.519</li>
+                            <li>0.518</li>
+                            <li>0.517</li>
+                            <!-- Level 75 -->
+                            <li>0.516</li>
+                            <li>0.515</li>
+                            <li>0.514</li>
+                            <li>0.514</li>
+                            <li>0.513</li>
+                            <!-- Level 80 -->
+                            <li>0.512</li>
+                            <li>0.512</li>
+                            <li>0.511</li>
+                            <li>0.511</li>
+                            <li>0.510</li>
+                            <!-- Level 85 -->
+                            <li>0.510</li>
+                            <li>0.509</li>
+                            <li>0.509</li>
+                            <li>0.508</li>
+                            <li>0.508</li>
+                            <!-- Level 90 -->
+                            <li>0.508</li>
+                            <li>0.507</li>
+                            <li>0.507</li>
+                            <li>0.506</li>
+                            <li>0.506</li>
+                            <!-- Level 95 -->
+                            <li>0.506</li>
+                            <li>0.506</li>
+                            <li>0.505</li>
+                            <li>0.505</li>
+                            <li>0.505</li>
+                            <!-- Level 100 -->
+                            <li>0.505</li>
+                        </valuesPerLevel>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+</Patch>

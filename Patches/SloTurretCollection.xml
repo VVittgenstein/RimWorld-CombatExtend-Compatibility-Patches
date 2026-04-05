@@ -1,0 +1,1346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods><li>Slo' turret collection</li></mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+
+                <!-- ==================== SECTION 1: ENERGY TURRET BUILDING CONVERSIONS ==================== -->
+
+                <!-- Tesla: Convert EnergyTurret to Building_LaserGunCE -->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Tesla"]</xpath>
+                    <attribute>Class</attribute>
+                    <value>CombatExtended.Lasers.Building_LaserGunDef</value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Tesla"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.Building_LaserGunCE</thingClass></value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Tesla"]</xpath>
+                    <value><beamPowerConsumption>833</beamPowerConsumption></value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Tesla"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Tesla"]/comps/li[@Class="slo_s_Libary.CompProperties_EnergyChargeable"]</xpath>
+                </li>
+
+                <!-- Smite: Convert EnergyTurret to Building_LaserGunCE -->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Smite"]</xpath>
+                    <attribute>Class</attribute>
+                    <value>CombatExtended.Lasers.Building_LaserGunDef</value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Smite"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.Building_LaserGunCE</thingClass></value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Smite"]</xpath>
+                    <value><beamPowerConsumption>4167</beamPowerConsumption></value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Smite"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Smite"]/comps/li[@Class="slo_s_Libary.CompProperties_EnergyChargeable"]</xpath>
+                </li>
+
+                <!-- Beamlance: Convert EnergyTurret to Building_LaserGunCE -->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Beamlance"]</xpath>
+                    <attribute>Class</attribute>
+                    <value>CombatExtended.Lasers.Building_LaserGunDef</value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Beamlance"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.Building_LaserGunCE</thingClass></value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Beamlance"]</xpath>
+                    <value><beamPowerConsumption>833</beamPowerConsumption></value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Beamlance"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Beamlance"]/comps/li[@Class="slo_s_Libary.CompProperties_EnergyChargeable"]</xpath>
+                </li>
+
+                <!-- Heavenly Needle: Convert EnergyTurret to Building_LaserGunCE -->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Heavenly_Needle"]</xpath>
+                    <attribute>Class</attribute>
+                    <value>CombatExtended.Lasers.Building_LaserGunDef</value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Heavenly_Needle"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.Building_LaserGunCE</thingClass></value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Heavenly_Needle"]</xpath>
+                    <value><beamPowerConsumption>1500</beamPowerConsumption></value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Heavenly_Needle"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Heavenly_Needle"]/comps/li[@Class="slo_s_Libary.CompProperties_EnergyChargeable"]</xpath>
+                </li>
+
+                <!-- Prism: Convert EnergyTurret to Building_LaserGunCE -->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_prism"]</xpath>
+                    <attribute>Class</attribute>
+                    <value>CombatExtended.Lasers.Building_LaserGunDef</value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_prism"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.Building_LaserGunCE</thingClass></value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_prism"]</xpath>
+                    <value><beamPowerConsumption>1250</beamPowerConsumption></value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_prism"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_prism"]/comps/li[@Class="slo_s_Libary.CompProperties_EnergyChargeable"]</xpath>
+                </li>
+
+                <!-- Arc Accelerator: Convert EnergyTurret to Building_LaserGunCE -->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Arc_Accelerator"]</xpath>
+                    <attribute>Class</attribute>
+                    <value>CombatExtended.Lasers.Building_LaserGunDef</value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Arc_Accelerator"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.Building_LaserGunCE</thingClass></value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Arc_Accelerator"]</xpath>
+                    <value><beamPowerConsumption>4</beamPowerConsumption></value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Arc_Accelerator"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Arc_Accelerator"]/comps/li[@Class="slo_s_Libary.CompProperties_EnergyChargeable"]</xpath>
+                </li>
+
+                <!-- MoonBeam: Convert EnergyTurret to Building_LaserGunCE -->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>Defs/ThingDef[defName="STC_TurretMoonBeam"]</xpath>
+                    <attribute>Class</attribute>
+                    <value>CombatExtended.Lasers.Building_LaserGunDef</value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_TurretMoonBeam"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.Building_LaserGunCE</thingClass></value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_TurretMoonBeam"]</xpath>
+                    <value><beamPowerConsumption>2</beamPowerConsumption></value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_TurretMoonBeam"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_TurretMoonBeam"]/comps/li[@Class="slo_s_Libary.CompProperties_EnergyChargeable"]</xpath>
+                </li>
+
+                <!-- Rupturer: Convert EnergyTurret to Building_LaserGunCE -->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Rupturer"]</xpath>
+                    <attribute>Class</attribute>
+                    <value>CombatExtended.Lasers.Building_LaserGunDef</value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Rupturer"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.Building_LaserGunCE</thingClass></value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Rupturer"]</xpath>
+                    <value><beamPowerConsumption>1500</beamPowerConsumption></value>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Rupturer"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Turret_Rupturer"]/comps/li[@Class="slo_s_Libary.CompProperties_EnergyChargeable"]</xpath>
+                </li>
+
+                <!-- ==================== SECTION 2: FAMILY A - STANDARD BALLISTIC GUN CONVERSIONS ==================== -->
+
+                <!-- Jumbo -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Jumbo</defName>
+                    <statBases>
+                        <Mass>6</Mass>
+                        <Bulk>10</Bulk>
+                        <SightsEfficiency>0.7</SightsEfficiency>
+                        <ShotSpread>0.17</ShotSpread>
+                        <SwayFactor>1.8</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+                        <warmupTime>0.8</warmupTime>
+                        <range>45</range>
+                        <burstShotCount>10</burstShotCount>
+                        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                        <soundCast>Shot_Minigun</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.5</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>300</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>5</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- Bolter -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Bolter</defName>
+                    <statBases>
+                        <Mass>15</Mass>
+                        <Bulk>20</Bulk>
+                        <SightsEfficiency>0.9</SightsEfficiency>
+                        <ShotSpread>0.08</ShotSpread>
+                        <SwayFactor>1.2</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_20x102mm_HE</defaultProjectile>
+                        <warmupTime>0.2</warmupTime>
+                        <range>55</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_Autocannon</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.8</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>60</magazineSize>
+                        <reloadTime>6</reloadTime>
+                        <ammoSet>AmmoSet_20x102mm</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- Shotgun -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Shotgun</defName>
+                    <statBases>
+                        <Mass>8</Mass>
+                        <Bulk>12</Bulk>
+                        <SightsEfficiency>0.6</SightsEfficiency>
+                        <ShotSpread>0.30</ShotSpread>
+                        <SwayFactor>2.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_12Gauge_Buck</defaultProjectile>
+                        <warmupTime>0.1</warmupTime>
+                        <range>20</range>
+                        <burstShotCount>6</burstShotCount>
+                        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                        <soundCast>Shot_Shotgun</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>1.2</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>60</magazineSize>
+                        <reloadTime>6</reloadTime>
+                        <ammoSet>AmmoSet_12Gauge</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>3</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- Speewer -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_SpeewerTurret</defName>
+                    <statBases>
+                        <Mass>20</Mass>
+                        <Bulk>25</Bulk>
+                        <SightsEfficiency>0.7</SightsEfficiency>
+                        <ShotSpread>0.20</ShotSpread>
+                        <SwayFactor>2.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+                        <warmupTime>2.0</warmupTime>
+                        <range>45</range>
+                        <burstShotCount>20</burstShotCount>
+                        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                        <soundCast>Shot_Minigun</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.5</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>600</magazineSize>
+                        <reloadTime>12</reloadTime>
+                        <ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>10</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- Paladin -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_PaladinTurret</defName>
+                    <statBases>
+                        <Mass>18</Mass>
+                        <Bulk>22</Bulk>
+                        <SightsEfficiency>0.9</SightsEfficiency>
+                        <ShotSpread>0.07</ShotSpread>
+                        <SwayFactor>1.1</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_20x102mm_HE</defaultProjectile>
+                        <warmupTime>0.5</warmupTime>
+                        <range>55</range>
+                        <burstShotCount>3</burstShotCount>
+                        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                        <soundCast>Shot_Autocannon</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.8</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>90</magazineSize>
+                        <reloadTime>6</reloadTime>
+                        <ammoSet>AmmoSet_20x102mm</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- Mini Spiner -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Mini_Spiner</defName>
+                    <statBases>
+                        <Mass>4</Mass>
+                        <Bulk>6</Bulk>
+                        <SightsEfficiency>0.6</SightsEfficiency>
+                        <ShotSpread>0.22</ShotSpread>
+                        <SwayFactor>2.2</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_556x45mmNATO_FMJ</defaultProjectile>
+                        <warmupTime>0.2</warmupTime>
+                        <range>30</range>
+                        <burstShotCount>10</burstShotCount>
+                        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                        <soundCast>Shot_Minigun</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.4</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>120</magazineSize>
+                        <reloadTime>4</reloadTime>
+                        <ammoSet>AmmoSet_556x45mmNATO</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>5</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- Deserter -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Deserter</defName>
+                    <statBases>
+                        <Mass>25</Mass>
+                        <Bulk>30</Bulk>
+                        <SightsEfficiency>0.8</SightsEfficiency>
+                        <ShotSpread>0.15</ShotSpread>
+                        <SwayFactor>1.5</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+                        <warmupTime>2.0</warmupTime>
+                        <range>50</range>
+                        <burstShotCount>30</burstShotCount>
+                        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                        <soundCast>Shot_Minigun</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.5</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>600</magazineSize>
+                        <reloadTime>12</reloadTime>
+                        <ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>10</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- ==================== SECTION 3: FAMILY B - VEF SPECIAL PROJECTILE GUN CONVERSIONS ==================== -->
+
+                <!-- Scorch -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Scorch</defName>
+                    <statBases>
+                        <Mass>10</Mass>
+                        <Bulk>15</Bulk>
+                        <SightsEfficiency>0.5</SightsEfficiency>
+                        <ShotSpread>0.25</ShotSpread>
+                        <SwayFactor>2.5</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>STC_Bullet_Scorch</defaultProjectile>
+                        <warmupTime>0.25</warmupTime>
+                        <range>12</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_Incendiary</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.6</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>300</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_STC_IncendiaryFuel</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>1</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- Turret Lancer -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_TurretLancer</defName>
+                    <statBases>
+                        <Mass>20</Mass>
+                        <Bulk>25</Bulk>
+                        <SightsEfficiency>1.0</SightsEfficiency>
+                        <ShotSpread>0.04</ShotSpread>
+                        <SwayFactor>0.8</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_Railgun_Standard</defaultProjectile>
+                        <warmupTime>3.0</warmupTime>
+                        <range>65</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>1.5</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>30</magazineSize>
+                        <reloadTime>6</reloadTime>
+                        <ammoSet>AmmoSet_STC_Railgun</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- Tesla Turret Gun -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_TeslaTurret</defName>
+                    <statBases>
+                        <Mass>15</Mass>
+                        <Bulk>20</Bulk>
+                        <SightsEfficiency>0.8</SightsEfficiency>
+                        <ShotSpread>0.10</ShotSpread>
+                        <SwayFactor>1.5</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>STC_Bullet_TeslaCoil</defaultProjectile>
+                        <warmupTime>0.5</warmupTime>
+                        <range>35</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.8</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>200</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_STC_TeslaCharge</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- Fuse Turret Gun -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_FuseTurret</defName>
+                    <statBases>
+                        <Mass>12</Mass>
+                        <Bulk>18</Bulk>
+                        <SightsEfficiency>0.7</SightsEfficiency>
+                        <ShotSpread>0.20</ShotSpread>
+                        <SwayFactor>2.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>STC_Bullet_Fuse</defaultProjectile>
+                        <warmupTime>0.1</warmupTime>
+                        <range>20</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_Incendiary</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>1.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>150</magazineSize>
+                        <reloadTime>6</reloadTime>
+                        <ammoSet>AmmoSet_STC_FuseCharge</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- WatchGuard -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_WatchGuard</defName>
+                    <statBases>
+                        <Mass>20</Mass>
+                        <Bulk>25</Bulk>
+                        <SightsEfficiency>0.8</SightsEfficiency>
+                        <ShotSpread>0.12</ShotSpread>
+                        <SwayFactor>1.5</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>STC_Bullet_WatchGuard</defaultProjectile>
+                        <warmupTime>0.5</warmupTime>
+                        <range>45</range>
+                        <burstShotCount>8</burstShotCount>
+                        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                        <soundCast>Shot_Shotgun</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>1.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>80</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_STC_Canister</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>4</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- HellFlare (overhead mortar verb) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_HellFlare</defName>
+                    <statBases>
+                        <Mass>15</Mass>
+                        <Bulk>20</Bulk>
+                        <SightsEfficiency>0.6</SightsEfficiency>
+                        <ShotSpread>0.30</ShotSpread>
+                        <SwayFactor>2.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_IncendiaryRocket</defaultProjectile>
+                        <warmupTime>1.0</warmupTime>
+                        <range>120</range>
+                        <burstShotCount>20</burstShotCount>
+                        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                        <soundCast>Shot_IncendiaryLauncher</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.5</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>100</magazineSize>
+                        <reloadTime>10</reloadTime>
+                        <ammoSet>AmmoSet_STC_IncendiaryRocket</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>10</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- ==================== SECTION 4: FAMILY C - LASER BEAM GUN CONVERSIONS ==================== -->
+
+                <!-- Beamlance Gun -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Beamlance</defName>
+                    <statBases>
+                        <Mass>25</Mass>
+                        <Bulk>30</Bulk>
+                        <SightsEfficiency>1.0</SightsEfficiency>
+                        <ShotSpread>0.03</ShotSpread>
+                        <SwayFactor>0.7</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_Beamlance</defaultProjectile>
+                        <warmupTime>3.0</warmupTime>
+                        <range>65</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.5</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>100</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_STC_Beamlance</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- Prism Gun -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Prism</defName>
+                    <statBases>
+                        <Mass>25</Mass>
+                        <Bulk>30</Bulk>
+                        <SightsEfficiency>0.9</SightsEfficiency>
+                        <ShotSpread>0.05</ShotSpread>
+                        <SwayFactor>0.8</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_PrismBeam</defaultProjectile>
+                        <warmupTime>3.0</warmupTime>
+                        <range>55</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.5</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>100</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_STC_PrismBeam</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- MoonBeam Gun -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_MoonBeam</defName>
+                    <statBases>
+                        <Mass>30</Mass>
+                        <Bulk>35</Bulk>
+                        <SightsEfficiency>0.8</SightsEfficiency>
+                        <ShotSpread>0.15</ShotSpread>
+                        <SwayFactor>1.5</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_MoonBeam</defaultProjectile>
+                        <warmupTime>1.0</warmupTime>
+                        <range>120</range>
+                        <burstShotCount>100</burstShotCount>
+                        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.1</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>1000</magazineSize>
+                        <reloadTime>15</reloadTime>
+                        <ammoSet>AmmoSet_STC_MoonBeam</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>20</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- Smite Gun -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Smite</defName>
+                    <statBases>
+                        <Mass>40</Mass>
+                        <Bulk>50</Bulk>
+                        <SightsEfficiency>1.0</SightsEfficiency>
+                        <ShotSpread>0.02</ShotSpread>
+                        <SwayFactor>0.5</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_SmiteBeam</defaultProjectile>
+                        <warmupTime>5.0</warmupTime>
+                        <range>100</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.5</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>100</magazineSize>
+                        <reloadTime>12</reloadTime>
+                        <ammoSet>AmmoSet_STC_SmiteBeam</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- Smite split beam conversions -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Bullet_SmiteBeamSplit"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.LaserBeamCE</thingClass></value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Bullet_SmiteBeamSplitSecondary"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.LaserBeamCE</thingClass></value>
+                </li>
+
+                <!-- Prism split beam conversion -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="STC_Bullet_PrismBeamSplit"]/thingClass</xpath>
+                    <value><thingClass>CombatExtended.Lasers.LaserBeamCE</thingClass></value>
+                </li>
+
+                <!-- ==================== SECTION 5: FAMILY D - CUSTOM EXPLOSIVE GUN CONVERSIONS ==================== -->
+
+                <!-- Foreshadow (flyOverhead mortar) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_ForeshadowTurret</defName>
+                    <statBases>
+                        <Mass>30</Mass>
+                        <Bulk>40</Bulk>
+                        <SightsEfficiency>0.8</SightsEfficiency>
+                        <ShotSpread>0.10</ShotSpread>
+                        <SwayFactor>1.5</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_ChargedBomb</defaultProjectile>
+                        <warmupTime>6.0</warmupTime>
+                        <range>500</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>2.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>30</magazineSize>
+                        <reloadTime>10</reloadTime>
+                        <ammoSet>AmmoSet_STC_ChargedBomb</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- ShockPoralizer (EMP explosive) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_ShockPoralizer</defName>
+                    <statBases>
+                        <Mass>15</Mass>
+                        <Bulk>20</Bulk>
+                        <SightsEfficiency>0.7</SightsEfficiency>
+                        <ShotSpread>0.15</ShotSpread>
+                        <SwayFactor>1.8</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_40x46mmGrenade_EMP</defaultProjectile>
+                        <warmupTime>0.5</warmupTime>
+                        <range>30</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_GrenadeLauncher</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>1.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>50</magazineSize>
+                        <reloadTime>6</reloadTime>
+                        <ammoSet>AmmoSet_40x46mmGrenade</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- SmiteTurret (burst fire) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_SmiteTurret</defName>
+                    <statBases>
+                        <Mass>20</Mass>
+                        <Bulk>25</Bulk>
+                        <SightsEfficiency>0.7</SightsEfficiency>
+                        <ShotSpread>0.12</ShotSpread>
+                        <SwayFactor>1.5</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_SmiteCharge</defaultProjectile>
+                        <warmupTime>0.5</warmupTime>
+                        <range>55</range>
+                        <burstShotCount>20</burstShotCount>
+                        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.8</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>300</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_STC_SmiteCharge</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>10</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- ==================== SECTION 6: FAMILY E - ARTILLERY / ORDNANCE ==================== -->
+
+                <!-- Rain Turret (direct-fire) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_RainTurret</defName>
+                    <statBases>
+                        <Mass>25</Mass>
+                        <Bulk>30</Bulk>
+                        <SightsEfficiency>0.7</SightsEfficiency>
+                        <ShotSpread>0.20</ShotSpread>
+                        <SwayFactor>2.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_Rocket</defaultProjectile>
+                        <warmupTime>3.0</warmupTime>
+                        <range>75</range>
+                        <burstShotCount>20</burstShotCount>
+                        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                        <soundCast>Shot_IncendiaryLauncher</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>1.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>200</magazineSize>
+                        <reloadTime>10</reloadTime>
+                        <ammoSet>AmmoSet_STC_Rocket</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>10</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- DawnMaker (mortar verb) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_DawnMaker</defName>
+                    <statBases>
+                        <Mass>40</Mass>
+                        <Bulk>50</Bulk>
+                        <SightsEfficiency>0.8</SightsEfficiency>
+                        <ShotSpread>0.10</ShotSpread>
+                        <SwayFactor>1.5</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_Thermobaric</defaultProjectile>
+                        <warmupTime>6.0</warmupTime>
+                        <range>500</range>
+                        <burstShotCount>4</burstShotCount>
+                        <ticksBetweenBurstShots>60</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>3.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>20</magazineSize>
+                        <reloadTime>15</reloadTime>
+                        <ammoSet>AmmoSet_STC_Thermobaric</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- Patriarch (vanilla projectile preserved, mortar verb) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_PatriachTurret</defName>
+                    <statBases>
+                        <Mass>30</Mass>
+                        <Bulk>40</Bulk>
+                        <SightsEfficiency>0.7</SightsEfficiency>
+                        <ShotSpread>0.15</ShotSpread>
+                        <SwayFactor>2.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>STC_Bullet_Drone</defaultProjectile>
+                        <warmupTime>4.0</warmupTime>
+                        <range>500</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>2.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>10</magazineSize>
+                        <reloadTime>12</reloadTime>
+                        <ammoSet>AmmoSet_STC_Drone</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- FlyCracker (vanilla projectile preserved, mortar verb) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_FlyCracker</defName>
+                    <statBases>
+                        <Mass>25</Mass>
+                        <Bulk>35</Bulk>
+                        <SightsEfficiency>0.6</SightsEfficiency>
+                        <ShotSpread>0.20</ShotSpread>
+                        <SwayFactor>2.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>STC_FlyCracker_Projectile</defaultProjectile>
+                        <warmupTime>3.0</warmupTime>
+                        <range>200</range>
+                        <burstShotCount>1</burstShotCount>
+                        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>2.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>10</magazineSize>
+                        <reloadTime>10</reloadTime>
+                        <ammoSet>AmmoSet_STC_ClusterMunition</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- Mortar buildings: remove ITab_Shells -->
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_GuardianCannon"]/inspectorTabs/li[text()="ITab_Shells"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_EarthShatterer"]/inspectorTabs/li[text()="ITab_Shells"]</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Rain"]/inspectorTabs/li[text()="ITab_Shells"]</xpath>
+                </li>
+
+                <!-- Guardian Turret Head (mortar) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Guardian_TurretHead</defName>
+                    <statBases>
+                        <Mass>50</Mass>
+                        <Bulk>60</Bulk>
+                        <SightsEfficiency>0.5</SightsEfficiency>
+                        <ShotSpread>0.30</ShotSpread>
+                        <SwayFactor>3.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_81mmMortarShell_HE</defaultProjectile>
+                        <warmupTime>4.0</warmupTime>
+                        <range>500</range>
+                        <burstShotCount>1</burstShotCount>
+                        <soundCast>Mortar_LaunchA</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>2.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>1</magazineSize>
+                        <reloadTime>5</reloadTime>
+                        <ammoSet>AmmoSet_81mmMortarShell</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Guardian_TurretHead"]/comps/li[@Class="CompProperties_ChangeableProjectile"]</xpath>
+                </li>
+
+                <!-- EarthShatterer Turret Head (mortar) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_EarthShatterer_TurretHead</defName>
+                    <statBases>
+                        <Mass>50</Mass>
+                        <Bulk>60</Bulk>
+                        <SightsEfficiency>0.5</SightsEfficiency>
+                        <ShotSpread>0.30</ShotSpread>
+                        <SwayFactor>3.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_HeavyShell_HE</defaultProjectile>
+                        <warmupTime>4.0</warmupTime>
+                        <range>500</range>
+                        <burstShotCount>1</burstShotCount>
+                        <soundCast>Mortar_LaunchA</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>2.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>1</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_STC_HeavyShell</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_EarthShatterer_TurretHead"]/comps/li[@Class="CompProperties_ChangeableProjectile"]</xpath>
+                </li>
+
+                <!-- Rain Turret Head (mortar) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Rain_TurretHead</defName>
+                    <statBases>
+                        <Mass>50</Mass>
+                        <Bulk>60</Bulk>
+                        <SightsEfficiency>0.5</SightsEfficiency>
+                        <ShotSpread>0.30</ShotSpread>
+                        <SwayFactor>3.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_ClusterMissile</defaultProjectile>
+                        <warmupTime>4.0</warmupTime>
+                        <range>500</range>
+                        <burstShotCount>1</burstShotCount>
+                        <soundCast>Mortar_LaunchA</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>2.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>1</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_STC_ClusterMissile</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/ThingDef[defName="STC_Rain_TurretHead"]/comps/li[@Class="CompProperties_ChangeableProjectile"]</xpath>
+                </li>
+
+                <!-- ==================== SECTION 7: FAMILY F - ULTRA-TECH ENERGY GUN CONVERSIONS ==================== -->
+
+                <!-- Arc Accelerator Gun -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_ArcAccelerator</defName>
+                    <statBases>
+                        <Mass>15</Mass>
+                        <Bulk>20</Bulk>
+                        <SightsEfficiency>0.9</SightsEfficiency>
+                        <ShotSpread>0.08</ShotSpread>
+                        <SwayFactor>1.2</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>Bullet_STC_AcceleratorRound_Standard</defaultProjectile>
+                        <warmupTime>3.0</warmupTime>
+                        <range>50</range>
+                        <burstShotCount>20</burstShotCount>
+                        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>0.6</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>100</magazineSize>
+                        <reloadTime>8</reloadTime>
+                        <ammoSet>AmmoSet_STC_AcceleratorRound</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>true</aiUseBurstMode>
+                        <aiAimMode>SuppressFire</aiAimMode>
+                        <aimedBurstShotCount>10</aimedBurstShotCount>
+                    </FireModes>
+                </li>
+
+                <!-- Heavenly Needle Gun (vanilla projectile preserved, mortar verb) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Heavenly_needle</defName>
+                    <statBases>
+                        <Mass>50</Mass>
+                        <Bulk>60</Bulk>
+                        <SightsEfficiency>0.7</SightsEfficiency>
+                        <ShotSpread>0.15</ShotSpread>
+                        <SwayFactor>2.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>STC_bullet_OrbitalBeam</defaultProjectile>
+                        <warmupTime>6.0</warmupTime>
+                        <range>500</range>
+                        <burstShotCount>1</burstShotCount>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>3.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>10</magazineSize>
+                        <reloadTime>15</reloadTime>
+                        <ammoSet>AmmoSet_STC_OrbitalCharge</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- Rupturer Gun (vanilla projectile preserved, mortar verb) -->
+                <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+                    <defName>STC_Gun_Rupturer</defName>
+                    <statBases>
+                        <Mass>50</Mass>
+                        <Bulk>60</Bulk>
+                        <SightsEfficiency>0.7</SightsEfficiency>
+                        <ShotSpread>0.15</ShotSpread>
+                        <SwayFactor>2.0</SwayFactor>
+                        <RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+                    </statBases>
+                    <Properties>
+                        <verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>STC_bullet_Rupturer</defaultProjectile>
+                        <warmupTime>6.0</warmupTime>
+                        <range>500</range>
+                        <burstShotCount>1</burstShotCount>
+                        <soundCast>Shot_ChargeBlaster</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                        <recoilAmount>3.0</recoilAmount>
+                        <recoilPattern>Mounted</recoilPattern>
+                        <indirectFirePenalty>0.2</indirectFirePenalty>
+                    </Properties>
+                    <AmmoUser>
+                        <magazineSize>10</magazineSize>
+                        <reloadTime>15</reloadTime>
+                        <ammoSet>AmmoSet_STC_RuptureCharge</ammoSet>
+                    </AmmoUser>
+                    <FireModes>
+                        <aiUseBurstMode>false</aiUseBurstMode>
+                        <aiAimMode>AimedShot</aiAimMode>
+                    </FireModes>
+                </li>
+
+                <!-- ==================== SECTION 8: FAMILY G - APPAREL BULK/WORNBULK ==================== -->
+
+                <!-- MiniSpiner apparel: add CE Bulk stats -->
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_Apparel_MiniSpinerTurret"]/statBases</xpath>
+                    <value>
+                        <Bulk>8</Bulk>
+                        <WornBulk>4</WornBulk>
+                    </value>
+                </li>
+
+                <!-- FlyCracker apparel: add CE Bulk stats -->
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="STC_Apparel_FlyCrackerTurret"]/statBases</xpath>
+                    <value>
+                        <Bulk>10</Bulk>
+                        <WornBulk>5</WornBulk>
+                    </value>
+                </li>
+
+            </operations>
+        </match>
+    </Operation>
+</Patch>

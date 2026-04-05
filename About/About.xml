@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>V2 CE Compatibility Patches</name>
+    <author>V2 Mod Pack Team</author>
+    <packageId>v2modpack.cepatch</packageId>
+    <url></url>
+    <supportedVersions>
+        <li>1.6</li>
+    </supportedVersions>
+    <description>Combat Extended compatibility patches for 12 mods in the V2 Mod Pack.
+
+Covers: JumpLifter, RimThunder - Core, Phase Weaponry, Vanilla Psycasts Expanded,
+Doors Expanded, EndlessGrowth, VWE - Heavy Weapons, Greyscythe Cybergenetics,
+VQE - Ancients, Greyscythe Bionics Catalogue, Landkreuzer P1000 Ratte,
+Slo' turret collection.
+
+Requires Combat Extended. Each target mod's patches apply only when that mod is active.</description>
+
+    <!-- Hard dependency: CE must be loaded -->
+    <modDependencies>
+        <li>
+            <packageId>CETeam.CombatExtended</packageId>
+            <displayName>Combat Extended</displayName>
+        </li>
+    </modDependencies>
+
+    <!-- Load after CE and all 12 target mods to ensure defs are available for patching -->
+    <loadAfter>
+        <li>CETeam.CombatExtended</li>
+        <!-- Wave A targets -->
+        <li>rabiosus.jumplifter</li>
+        <li>RimThunder.Core</li>
+        <li>det.phaseweaponry</li>
+        <li>VanillaExpanded.VPsycastsE</li>
+        <li>jecrell.doorsexpanded</li>
+        <li>SlimeSenpai.EndlessGrowth</li>
+        <!-- Wave B targets -->
+        <li>VanillaExpanded.VWEHW</li>
+        <li>feaurie.GreyscytheGenes</li>
+        <li>VanillaExpanded.VQEA</li>
+        <li>feaurie.GreyscytheBionics</li>
+        <li>slomow.P1000R</li>
+        <li>slomow.SloTurrettCollec</li>
+        <!-- Frameworks these targets depend on -->
+        <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+        <li>SmashPhil.VehicleFramework</li>
+        <li>slomow.SloLib</li>
+    </loadAfter>
+</ModMetaData>

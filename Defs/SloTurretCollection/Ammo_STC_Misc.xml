@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========== STC Miscellaneous Ammo Definitions ========== -->
+    <!-- Fuel-based ammo for Scorch and Fuse turrets, and Canister for WatchGuard. -->
+    <!-- These turrets keep their original projectiles; AmmoSets map new ammo items to them. -->
+
+    <!-- ==================== ThingCategoryDefs ==================== -->
+
+    <ThingCategoryDef>
+        <defName>AmmoSTC_IncendiaryFuel</defName>
+        <label>STC incendiary fuel</label>
+        <parent>AmmoAdvanced</parent>
+    </ThingCategoryDef>
+
+    <ThingCategoryDef>
+        <defName>AmmoSTC_FuseCharge</defName>
+        <label>STC fuse charges</label>
+        <parent>AmmoAdvanced</parent>
+    </ThingCategoryDef>
+
+    <ThingCategoryDef>
+        <defName>AmmoSTC_Canister</defName>
+        <label>STC canisters</label>
+        <parent>AmmoAdvanced</parent>
+    </ThingCategoryDef>
+
+    <!-- ================================================================ -->
+    <!-- ============== INCENDIARY FUEL (Scorch turret) ================ -->
+    <!-- ================================================================ -->
+
+    <!-- AmmoSetDef: maps to original STC_Bullet_Scorch projectile -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_IncendiaryFuel</defName>
+        <label>STC incendiary fuel</label>
+        <ammoTypes>
+            <Ammo_STC_IncendiaryFuel>STC_Bullet_Scorch</Ammo_STC_IncendiaryFuel>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- AmmoDef: industrial tier -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SmallAmmoBase">
+        <defName>Ammo_STC_IncendiaryFuel</defName>
+        <label>STC incendiary fuel canister</label>
+        <description>A pressurized canister of incendiary fuel for the STC Scorch turret. Burns hot and spreads fire on contact.</description>
+        <statBases>
+            <Mass>0.5</Mass>
+            <Bulk>0.8</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_IncendiaryFuel</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Incendiary/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>Incendiary</ammoClass>
+    </ThingDef>
+
+    <!-- RecipeDef: industrial tier -->
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeAmmo_STC_IncendiaryFuel</defName>
+        <label>make STC incendiary fuel x500</label>
+        <description>Craft 500 STC incendiary fuel canisters.</description>
+        <jobString>Making STC incendiary fuel.</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Chemfuel</li></thingDefs></filter>
+                <count>30</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Chemfuel</li>
+                <li>Steel</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_IncendiaryFuel>500</Ammo_STC_IncendiaryFuel>
+        </products>
+        <workAmount>3000</workAmount>
+    </RecipeDef>
+
+    <!-- ================================================================ -->
+    <!-- ================= FUSE CHARGE (Fuse turret) =================== -->
+    <!-- ================================================================ -->
+
+    <!-- AmmoSetDef: maps to original STC_Bullet_Fuse projectile -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_FuseCharge</defName>
+        <label>STC fuse charges</label>
+        <ammoTypes>
+            <Ammo_STC_FuseCharge>STC_Bullet_Fuse</Ammo_STC_FuseCharge>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- AmmoDef: spacer tier -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_STC_FuseCharge</defName>
+        <label>STC fuse charge</label>
+        <description>A precision-engineered charged energy cell for the STC Fuse turret. Combines uranium core with plasteel casing for stable high-energy output.</description>
+        <statBases>
+            <Mass>0.3</Mass>
+            <Bulk>0.5</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_FabricationBench</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_FuseCharge</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>Charged</ammoClass>
+    </ThingDef>
+
+    <!-- RecipeDef: spacer tier -->
+    <RecipeDef ParentName="ChargeAmmoRecipeBase">
+        <defName>MakeAmmo_STC_FuseCharge</defName>
+        <label>make STC fuse charges x500</label>
+        <description>Craft 500 STC fuse charges.</description>
+        <jobString>Making STC fuse charges.</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Plasteel</li></thingDefs></filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Uranium</li></thingDefs></filter>
+                <count>5</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>4</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Plasteel</li>
+                <li>Uranium</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_FuseCharge>500</Ammo_STC_FuseCharge>
+        </products>
+        <workAmount>8000</workAmount>
+    </RecipeDef>
+
+    <!-- ================================================================ -->
+    <!-- =============== CANISTER (WatchGuard turret) =================== -->
+    <!-- ================================================================ -->
+
+    <!-- AmmoSetDef: maps to original STC_Bullet_WatchGuard projectile -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_Canister</defName>
+        <label>STC canisters</label>
+        <ammoTypes>
+            <Ammo_STC_Canister>STC_Bullet_WatchGuard</Ammo_STC_Canister>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- AmmoDef: industrial tier, buckshot -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SmallAmmoBase">
+        <defName>Ammo_STC_Canister</defName>
+        <label>STC canister shot</label>
+        <description>A canister of heavy buckshot for the STC WatchGuard turret. Effective at close range against massed targets.</description>
+        <statBases>
+            <Mass>0.1</Mass>
+            <Bulk>0.15</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_Canister</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Shotgun/Shot</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>BuckShot</ammoClass>
+    </ThingDef>
+
+    <!-- RecipeDef: industrial tier -->
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeAmmo_STC_Canister</defName>
+        <label>make STC canister shots x500</label>
+        <description>Craft 500 STC canister shots.</description>
+        <jobString>Making STC canister shots.</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>25</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_Canister>500</Ammo_STC_Canister>
+        </products>
+        <workAmount>2500</workAmount>
+    </RecipeDef>
+
+</Defs>

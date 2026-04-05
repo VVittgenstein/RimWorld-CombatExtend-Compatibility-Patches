@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========== STC Explosive Ammo Definitions ========== -->
+    <!-- CE explosive projectile ammo for ChargedBomb, SmiteCharge, Rocket, Thermobaric, and IncendiaryRocket turrets. -->
+
+    <!-- ==================== ThingCategoryDef ==================== -->
+
+    <ThingCategoryDef>
+        <defName>AmmoSTC_Explosive</defName>
+        <label>STC explosive munitions</label>
+        <parent>AmmoAdvanced</parent>
+    </ThingCategoryDef>
+
+    <!-- ================================================================ -->
+    <!-- =============== CHARGED BOMB (Foreshadow turret) =============== -->
+    <!-- ================================================================ -->
+
+    <!-- AmmoSetDef -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_ChargedBomb</defName>
+        <label>STC charged bombs</label>
+        <ammoTypes>
+            <Ammo_STC_ChargedBomb>Bullet_STC_ChargedBomb</Ammo_STC_ChargedBomb>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- AmmoDef -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_STC_ChargedBomb</defName>
+        <label>STC charged bomb</label>
+        <description>A high-yield charged explosive device for the STC Foreshadow turret. Utilizes a custom charge-vaporization detonation mechanism.</description>
+        <statBases>
+            <Mass>2.0</Mass>
+            <Bulk>3.0</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_FabricationBench</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_Explosive</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>HighExplosive</ammoClass>
+    </ThingDef>
+
+    <!-- Projectile: explosive with custom DamageWorker_ChargeVapo -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_ChargedBomb</defName>
+        <label>charged bomb</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>STC_ChargedBomb</damageDef>
+            <speed>60</speed>
+            <damageAmountBase>80</damageAmountBase>
+            <explosionRadius>5</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="ChargeAmmoRecipeBase">
+        <defName>MakeAmmo_STC_ChargedBomb</defName>
+        <label>make STC charged bombs x500</label>
+        <description>Craft 500 STC charged bombs.</description>
+        <jobString>Making STC charged bombs.</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Plasteel</li></thingDefs></filter>
+                <count>15</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>FSX</li></thingDefs></filter>
+                <count>5</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Plasteel</li>
+                <li>ComponentIndustrial</li>
+                <li>FSX</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_ChargedBomb>500</Ammo_STC_ChargedBomb>
+        </products>
+        <workAmount>10000</workAmount>
+    </RecipeDef>
+
+    <!-- ================================================================ -->
+    <!-- ============= SMITE CHARGE (SmiteTurret early) ================ -->
+    <!-- ================================================================ -->
+
+    <!-- AmmoSetDef -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_SmiteCharge</defName>
+        <label>STC smite charges</label>
+        <ammoTypes>
+            <Ammo_STC_SmiteCharge>Bullet_STC_SmiteCharge</Ammo_STC_SmiteCharge>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- AmmoDef -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_STC_SmiteCharge</defName>
+        <label>STC smite charge</label>
+        <description>A compact explosive charge for the STC Smite turret. Delivers a moderate area-of-effect detonation.</description>
+        <statBases>
+            <Mass>0.8</Mass>
+            <Bulk>1.0</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_FabricationBench</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_Explosive</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>HighExplosive</ammoClass>
+    </ThingDef>
+
+    <!-- Projectile -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_SmiteCharge</defName>
+        <label>smite charge</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>STC_ChargedBomb</damageDef>
+            <speed>55</speed>
+            <damageAmountBase>12</damageAmountBase>
+            <explosionRadius>2.9</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="ChargeAmmoRecipeBase">
+        <defName>MakeAmmo_STC_SmiteCharge</defName>
+        <label>make STC smite charges x500</label>
+        <description>Craft 500 STC smite charges.</description>
+        <jobString>Making STC smite charges.</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Plasteel</li></thingDefs></filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>6</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Plasteel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_SmiteCharge>500</Ammo_STC_SmiteCharge>
+        </products>
+        <workAmount>8000</workAmount>
+    </RecipeDef>
+
+    <!-- ================================================================ -->
+    <!-- ================== ROCKET (RainTurret) ======================== -->
+    <!-- ================================================================ -->
+
+    <!-- AmmoSetDef -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_Rocket</defName>
+        <label>STC rockets</label>
+        <ammoTypes>
+            <Ammo_STC_Rocket>Bullet_STC_Rocket</Ammo_STC_Rocket>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- AmmoDef: industrial tier -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SmallAmmoBase">
+        <defName>Ammo_STC_Rocket</defName>
+        <label>STC rocket</label>
+        <description>A conventional high-explosive anti-tank rocket for the STC Rain turret system.</description>
+        <statBases>
+            <Mass>1.0</Mass>
+            <Bulk>1.5</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_Explosive</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>RocketHEAT</ammoClass>
+    </ThingDef>
+
+    <!-- Projectile -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_Rocket</defName>
+        <label>STC rocket</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bomb</damageDef>
+            <speed>80</speed>
+            <damageAmountBase>10</damageAmountBase>
+            <explosionRadius>1.9</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- RecipeDef: industrial tier -->
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeAmmo_STC_Rocket</defName>
+        <label>make STC rockets x500</label>
+        <description>Craft 500 STC rockets.</description>
+        <jobString>Making STC rockets.</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Chemfuel</li></thingDefs></filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>Chemfuel</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_Rocket>500</Ammo_STC_Rocket>
+        </products>
+        <workAmount>4000</workAmount>
+    </RecipeDef>
+
+    <!-- ================================================================ -->
+    <!-- =============== THERMOBARIC (DawnMaker turret) ================= -->
+    <!-- ================================================================ -->
+
+    <!-- AmmoSetDef -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_Thermobaric</defName>
+        <label>STC thermobaric bombs</label>
+        <ammoTypes>
+            <Ammo_STC_Thermobaric>Bullet_STC_Thermobaric</Ammo_STC_Thermobaric>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- AmmoDef: ultra-tech tier -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_STC_Thermobaric</defName>
+        <label>STC thermobaric bomb</label>
+        <description>An ultra-tech thermobaric munition for the STC DawnMaker turret. Creates a devastating overpressure detonation across an enormous radius.</description>
+        <statBases>
+            <Mass>2.0</Mass>
+            <Bulk>3.0</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_FabricationBench</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_Explosive</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>HighExplosive</ammoClass>
+    </ThingDef>
+
+    <!-- Projectile: massive radius thermobaric -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_Thermobaric</defName>
+        <label>thermobaric bomb</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>STC_ThermobaricBomb</damageDef>
+            <speed>50</speed>
+            <damageAmountBase>75</damageAmountBase>
+            <explosionRadius>10</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- RecipeDef: ultra-tech tier with ComponentSpacer -->
+    <RecipeDef ParentName="ChargeAmmoRecipeBase">
+        <defName>MakeAmmo_STC_Thermobaric</defName>
+        <label>make STC thermobaric bombs x500</label>
+        <description>Craft 500 STC thermobaric bombs.</description>
+        <jobString>Making STC thermobaric bombs.</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Plasteel</li></thingDefs></filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>FSX</li></thingDefs></filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentSpacer</li></thingDefs></filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Plasteel</li>
+                <li>FSX</li>
+                <li>ComponentSpacer</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_Thermobaric>500</Ammo_STC_Thermobaric>
+        </products>
+        <workAmount>15000</workAmount>
+    </RecipeDef>
+
+    <!-- ================================================================ -->
+    <!-- ============= INCENDIARY ROCKET (HellFlare turret) ============ -->
+    <!-- ================================================================ -->
+
+    <!-- AmmoSetDef -->
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_IncendiaryRocket</defName>
+        <label>STC incendiary rockets</label>
+        <ammoTypes>
+            <Ammo_STC_IncendiaryRocket>Bullet_STC_IncendiaryRocket</Ammo_STC_IncendiaryRocket>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- AmmoDef: industrial tier -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SmallAmmoBase">
+        <defName>Ammo_STC_IncendiaryRocket</defName>
+        <label>STC incendiary rocket</label>
+        <description>A fire-starting rocket for the STC HellFlare turret. Spreads burning fuel across the impact area.</description>
+        <statBases>
+            <Mass>0.8</Mass>
+            <Bulk>1.0</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_Explosive</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>Incendiary</ammoClass>
+    </ThingDef>
+
+    <!-- Projectile: incendiary with fuel spread -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_IncendiaryRocket</defName>
+        <label>incendiary rocket</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Flame</damageDef>
+            <speed>60</speed>
+            <damageAmountBase>10</damageAmountBase>
+            <explosionRadius>1</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+            <ai_IsIncendiary>true</ai_IsIncendiary>
+            <preExplosionSpawnChance>1</preExplosionSpawnChance>
+            <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        </projectile>
+    </ThingDef>
+
+    <!-- RecipeDef: industrial tier -->
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeAmmo_STC_IncendiaryRocket</defName>
+        <label>make STC incendiary rockets x500</label>
+        <description>Craft 500 STC incendiary rockets.</description>
+        <jobString>Making STC incendiary rockets.</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>15</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Chemfuel</li></thingDefs></filter>
+                <count>15</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>Chemfuel</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_IncendiaryRocket>500</Ammo_STC_IncendiaryRocket>
+        </products>
+        <workAmount>3000</workAmount>
+    </RecipeDef>
+
+</Defs>

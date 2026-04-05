@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========== STC Ballistic Ammo Definitions ========== -->
+    <!-- CE projectile ammo for Railgun (Lancer turret) and Accelerator (ArcAccelerator turret). -->
+    <!-- These require new AmmoDefs, new CE ProjectileDefs, and RecipeDefs. -->
+
+    <!-- ==================== ThingCategoryDefs ==================== -->
+
+    <ThingCategoryDef>
+        <defName>AmmoSTC_Railgun</defName>
+        <label>STC railgun slugs</label>
+        <parent>AmmoAdvanced</parent>
+    </ThingCategoryDef>
+
+    <ThingCategoryDef>
+        <defName>AmmoSTC_AcceleratorRound</defName>
+        <label>STC accelerator rounds</label>
+        <parent>AmmoAdvanced</parent>
+    </ThingCategoryDef>
+
+    <!-- ================================================================ -->
+    <!-- ==================== RAILGUN (Lancer turret) =================== -->
+    <!-- ================================================================ -->
+
+    <!-- ==================== AmmoSetDef ==================== -->
+
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_Railgun</defName>
+        <label>STC railgun slugs</label>
+        <ammoTypes>
+            <Ammo_STC_Railgun_Standard>Bullet_STC_Railgun_Standard</Ammo_STC_Railgun_Standard>
+            <Ammo_STC_Railgun_AP>Bullet_STC_Railgun_AP</Ammo_STC_Railgun_AP>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- ==================== AmmoDefs ==================== -->
+
+    <!-- Railgun Standard: sabot round with balanced damage and penetration -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_STC_Railgun_Standard</defName>
+        <label>STC railgun slug (standard)</label>
+        <description>A magnetically accelerated sabot slug for STC railgun turrets. Balanced penetration and kinetic damage.</description>
+        <statBases>
+            <Mass>0.05</Mass>
+            <Bulk>0.06</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_FabricationBench</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_Railgun</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>Sabot</ammoClass>
+    </ThingDef>
+
+    <!-- Railgun AP: armor-piercing variant with higher penetration -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_STC_Railgun_AP</defName>
+        <label>STC railgun slug (AP)</label>
+        <description>An armor-piercing railgun slug with a tungsten penetrator core. Reduced damage but vastly superior armor penetration.</description>
+        <statBases>
+            <Mass>0.05</Mass>
+            <Bulk>0.06</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_FabricationBench</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_Railgun</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>ArmorPiercing</ammoClass>
+    </ThingDef>
+
+    <!-- ==================== Projectile ThingDefs ==================== -->
+
+    <!-- Railgun Standard projectile: high-velocity sabot -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_Railgun_Standard</defName>
+        <label>railgun slug (standard)</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <speed>200</speed>
+            <damageAmountBase>35</damageAmountBase>
+            <armorPenetrationSharp>40</armorPenetrationSharp>
+            <armorPenetrationBlunt>100</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Railgun AP projectile: extreme penetration variant -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_Railgun_AP</defName>
+        <label>railgun slug (AP)</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <speed>200</speed>
+            <damageAmountBase>30</damageAmountBase>
+            <armorPenetrationSharp>55</armorPenetrationSharp>
+            <armorPenetrationBlunt>120</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- ==================== RecipeDefs ==================== -->
+
+    <!-- Railgun Standard recipe -->
+    <RecipeDef ParentName="ChargeAmmoRecipeBase">
+        <defName>MakeAmmo_STC_Railgun_Standard</defName>
+        <label>make STC railgun slugs (standard) x500</label>
+        <description>Craft 500 standard STC railgun slugs.</description>
+        <jobString>Making STC railgun slugs (standard).</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>15</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Plasteel</li></thingDefs></filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>4</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>Plasteel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_Railgun_Standard>500</Ammo_STC_Railgun_Standard>
+        </products>
+        <workAmount>8000</workAmount>
+    </RecipeDef>
+
+    <!-- Railgun AP recipe -->
+    <RecipeDef ParentName="ChargeAmmoRecipeBase">
+        <defName>MakeAmmo_STC_Railgun_AP</defName>
+        <label>make STC railgun slugs (AP) x500</label>
+        <description>Craft 500 armor-piercing STC railgun slugs.</description>
+        <jobString>Making STC railgun slugs (AP).</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Plasteel</li></thingDefs></filter>
+                <count>12</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>6</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>Plasteel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_Railgun_AP>500</Ammo_STC_Railgun_AP>
+        </products>
+        <workAmount>10000</workAmount>
+    </RecipeDef>
+
+    <!-- ================================================================== -->
+    <!-- ============= ACCELERATOR ROUND (ArcAccelerator turret) ========== -->
+    <!-- ================================================================== -->
+
+    <!-- ==================== AmmoSetDef ==================== -->
+
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_AcceleratorRound</defName>
+        <label>STC accelerator rounds</label>
+        <ammoTypes>
+            <Ammo_STC_AcceleratorRound_Standard>Bullet_STC_AcceleratorRound_Standard</Ammo_STC_AcceleratorRound_Standard>
+            <Ammo_STC_AcceleratorRound_AP>Bullet_STC_AcceleratorRound_AP</Ammo_STC_AcceleratorRound_AP>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- ==================== AmmoDefs ==================== -->
+
+    <!-- Accelerator Standard: FMJ round with bleeding damage -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_STC_AcceleratorRound_Standard</defName>
+        <label>STC accelerator round (standard)</label>
+        <description>A hypervelocity round for the STC arc accelerator turret. Causes severe bleeding on impact.</description>
+        <statBases>
+            <Mass>0.02</Mass>
+            <Bulk>0.025</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_FabricationBench</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_AcceleratorRound</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>FullMetalJacket</ammoClass>
+    </ThingDef>
+
+    <!-- Accelerator AP: armor-piercing variant -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>Ammo_STC_AcceleratorRound_AP</defName>
+        <label>STC accelerator round (AP)</label>
+        <description>An armor-piercing accelerator round with enhanced penetration capabilities at the cost of reduced tissue damage.</description>
+        <statBases>
+            <Mass>0.02</Mass>
+            <Bulk>0.025</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting_FabricationBench</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_AcceleratorRound</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>ArmorPiercing</ammoClass>
+    </ThingDef>
+
+    <!-- ==================== Projectile ThingDefs ==================== -->
+
+    <!-- Accelerator Standard projectile: bleeding damage -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_AcceleratorRound_Standard</defName>
+        <label>accelerator round (standard)</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>STC_BleedingBullet</damageDef>
+            <speed>175</speed>
+            <damageAmountBase>10</damageAmountBase>
+            <armorPenetrationSharp>25</armorPenetrationSharp>
+            <armorPenetrationBlunt>50</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Accelerator AP projectile: armor-piercing bleeding -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_AcceleratorRound_AP</defName>
+        <label>accelerator round (AP)</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>STC_BleedingBullet</damageDef>
+            <speed>175</speed>
+            <damageAmountBase>8</damageAmountBase>
+            <armorPenetrationSharp>40</armorPenetrationSharp>
+            <armorPenetrationBlunt>60</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- ==================== RecipeDefs ==================== -->
+
+    <!-- Accelerator Standard recipe -->
+    <RecipeDef ParentName="ChargeAmmoRecipeBase">
+        <defName>MakeAmmo_STC_AcceleratorRound_Standard</defName>
+        <label>make STC accelerator rounds (standard) x500</label>
+        <description>Craft 500 standard STC accelerator rounds.</description>
+        <jobString>Making STC accelerator rounds (standard).</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Plasteel</li></thingDefs></filter>
+                <count>5</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>4</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>Plasteel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_AcceleratorRound_Standard>500</Ammo_STC_AcceleratorRound_Standard>
+        </products>
+        <workAmount>6000</workAmount>
+    </RecipeDef>
+
+    <!-- Accelerator AP recipe -->
+    <RecipeDef ParentName="ChargeAmmoRecipeBase">
+        <defName>MakeAmmo_STC_AcceleratorRound_AP</defName>
+        <label>make STC accelerator rounds (AP) x500</label>
+        <description>Craft 500 armor-piercing STC accelerator rounds.</description>
+        <jobString>Making STC accelerator rounds (AP).</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>15</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Plasteel</li></thingDefs></filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>4</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>Plasteel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_AcceleratorRound_AP>500</Ammo_STC_AcceleratorRound_AP>
+        </products>
+        <workAmount>8000</workAmount>
+    </RecipeDef>
+
+</Defs>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--
+        CE-scale cybernetic stat part definitions for Greyscythe Cybergenetics.
+        Loaded conditionally via LoadFolders.xml when feaurie.GreyscytheGenes is active.
+
+        StatPart C# classes are defined in V2CEPatch.dll and injected programmatically
+        by V2CEPatchMod bootstrap into the target StatDefs at startup.
+
+        StatPart 1: StatPart_CyberneticMeleeDodge
+          Target: MeleeDodgeChance
+          Source: GS_Evade_EvadeMeleeChance (post-processed value, range 0-0.9)
+          Scale:  0.5x (a pawn with 0.20 raw evasion gets +0.10 dodge chance)
+          Effect: Translates GS_Evade melee evasion into CE's MeleeDodgeChance stat,
+                  replacing the disabled PreApplyDamage post-hit evasion roll.
+
+        StatPart 2: StatPart_CyberneticMeleePen
+          Target: MeleePenetrationFactor (CE stat, read from equipment)
+          Gene:   GG_M_Heavy → 1.35x multiplier
+          Hediff: GS_OverdriveHediff → 1.35x multiplier
+          Effect: Replaces vanilla MeleeArmorPenetration (which has no CE reader)
+                  with CE-native MeleePenetrationFactor applied via weapon stat.
+                  Non-stacking: gene and hediff provide the same bonus (max, not multiply).
+    -->
+
+    <!-- Configuration defs consumed by V2CEPatch StatPart classes -->
+    <V2CEPatch.StatPartConfigDef>
+        <defName>V2CE_CyberneticMeleeDodge</defName>
+        <label>cybernetic melee dodge</label>
+        <description>Translates GS_Evade melee evasion into CE MeleeDodgeChance at 0.5x scale.</description>
+        <targetStat>MeleeDodgeChance</targetStat>
+        <sourceStat>GS_Evade_EvadeMeleeChance</sourceStat>
+        <scaleFactor>0.5</scaleFactor>
+    </V2CEPatch.StatPartConfigDef>
+
+    <V2CEPatch.StatPartConfigDef>
+        <defName>V2CE_CyberneticMeleePen</defName>
+        <label>cybernetic melee penetration</label>
+        <description>Applies 1.35x MeleePenetrationFactor for GG_M_Heavy gene or GS_OverdriveHediff.</description>
+        <targetStat>MeleePenetrationFactor</targetStat>
+        <geneDefName>GG_M_Heavy</geneDefName>
+        <hediffDefName>GS_OverdriveHediff</hediffDefName>
+        <multiplier>1.35</multiplier>
+    </V2CEPatch.StatPartConfigDef>
+
+</Defs>

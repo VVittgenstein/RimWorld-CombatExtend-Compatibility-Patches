@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- ========== STC Artillery Ammo Definitions ========== -->
+    <!-- Heavy shell ammo for EarthShatterer and ClusterMissile for Rain_TurretHead. -->
+
+    <!-- ==================== ThingCategoryDefs ==================== -->
+
+    <ThingCategoryDef>
+        <defName>AmmoSTC_HeavyShell</defName>
+        <label>STC heavy shells</label>
+        <parent>AmmoShells</parent>
+    </ThingCategoryDef>
+
+    <ThingCategoryDef>
+        <defName>AmmoSTC_ClusterMissile</defName>
+        <label>STC cluster missiles</label>
+        <parent>AmmoShells</parent>
+    </ThingCategoryDef>
+
+    <!-- ================================================================ -->
+    <!-- ============== HEAVY SHELL (EarthShatterer, 3 variants) ======= -->
+    <!-- ================================================================ -->
+
+    <!-- ==================== AmmoSetDef ==================== -->
+
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_HeavyShell</defName>
+        <label>STC heavy shells</label>
+        <ammoTypes>
+            <Ammo_STC_HeavyShell_HE>Bullet_STC_HeavyShell_HE</Ammo_STC_HeavyShell_HE>
+            <Ammo_STC_HeavyShell_Incendiary>Bullet_STC_HeavyShell_Incendiary</Ammo_STC_HeavyShell_Incendiary>
+            <Ammo_STC_HeavyShell_EMP>Bullet_STC_HeavyShell_EMP</Ammo_STC_HeavyShell_EMP>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- ==================== AmmoDefs ==================== -->
+
+    <!-- Heavy Shell HE -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoBase">
+        <defName>Ammo_STC_HeavyShell_HE</defName>
+        <label>STC heavy shell (HE)</label>
+        <description>A massive high-explosive artillery shell for the STC EarthShatterer. Delivers devastating area damage.</description>
+        <statBases>
+            <Mass>5.0</Mass>
+            <Bulk>8.0</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_HeavyShell</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/MortarShell/Shell</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>HighExplosive</ammoClass>
+    </ThingDef>
+
+    <!-- Heavy Shell Incendiary -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoBase">
+        <defName>Ammo_STC_HeavyShell_Incendiary</defName>
+        <label>STC heavy shell (incendiary)</label>
+        <description>An incendiary artillery shell for the STC EarthShatterer. Sets a wide area ablaze on impact.</description>
+        <statBases>
+            <Mass>5.0</Mass>
+            <Bulk>8.0</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_HeavyShell</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/MortarShell/Shell</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>Incendiary</ammoClass>
+    </ThingDef>
+
+    <!-- Heavy Shell EMP -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoBase">
+        <defName>Ammo_STC_HeavyShell_EMP</defName>
+        <label>STC heavy shell (EMP)</label>
+        <description>An EMP artillery shell for the STC EarthShatterer. Disables electronics and mechanoids over a wide radius.</description>
+        <statBases>
+            <Mass>5.0</Mass>
+            <Bulk>8.0</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_HeavyShell</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/MortarShell/Shell</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>EMP</ammoClass>
+    </ThingDef>
+
+    <!-- ==================== Projectile ThingDefs ==================== -->
+
+    <!-- Heavy Shell HE projectile -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_HeavyShell_HE</defName>
+        <label>STC heavy shell (HE)</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bomb</damageDef>
+            <speed>40</speed>
+            <damageAmountBase>65</damageAmountBase>
+            <explosionRadius>8</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- Heavy Shell Incendiary projectile -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_HeavyShell_Incendiary</defName>
+        <label>STC heavy shell (incendiary)</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Flame</damageDef>
+            <speed>40</speed>
+            <damageAmountBase>20</damageAmountBase>
+            <explosionRadius>8</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+            <ai_IsIncendiary>true</ai_IsIncendiary>
+            <preExplosionSpawnChance>1</preExplosionSpawnChance>
+            <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        </projectile>
+    </ThingDef>
+
+    <!-- Heavy Shell EMP projectile -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_HeavyShell_EMP</defName>
+        <label>STC heavy shell (EMP)</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>EMP</damageDef>
+            <speed>40</speed>
+            <damageAmountBase>50</damageAmountBase>
+            <explosionRadius>6</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- ==================== RecipeDefs ==================== -->
+
+    <!-- Heavy Shell HE recipe -->
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeAmmo_STC_HeavyShell_HE</defName>
+        <label>make STC heavy shells (HE) x500</label>
+        <description>Craft 500 STC heavy HE shells.</description>
+        <jobString>Making STC heavy shells (HE).</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>30</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>FSX</li></thingDefs></filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>4</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>FSX</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_HeavyShell_HE>500</Ammo_STC_HeavyShell_HE>
+        </products>
+        <workAmount>6000</workAmount>
+    </RecipeDef>
+
+    <!-- Heavy Shell Incendiary recipe -->
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeAmmo_STC_HeavyShell_Incendiary</defName>
+        <label>make STC heavy shells (incendiary) x500</label>
+        <description>Craft 500 STC heavy incendiary shells.</description>
+        <jobString>Making STC heavy shells (incendiary).</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>Chemfuel</li></thingDefs></filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>Chemfuel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_HeavyShell_Incendiary>500</Ammo_STC_HeavyShell_Incendiary>
+        </products>
+        <workAmount>5000</workAmount>
+    </RecipeDef>
+
+    <!-- Heavy Shell EMP recipe -->
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeAmmo_STC_HeavyShell_EMP</defName>
+        <label>make STC heavy shells (EMP) x500</label>
+        <description>Craft 500 STC heavy EMP shells.</description>
+        <jobString>Making STC heavy shells (EMP).</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>25</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>8</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_HeavyShell_EMP>500</Ammo_STC_HeavyShell_EMP>
+        </products>
+        <workAmount>8000</workAmount>
+    </RecipeDef>
+
+    <!-- ================================================================ -->
+    <!-- =========== CLUSTER MISSILE (Rain_TurretHead) ================= -->
+    <!-- ================================================================ -->
+
+    <!-- ==================== AmmoSetDef ==================== -->
+
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_STC_ClusterMissile</defName>
+        <label>STC cluster missiles</label>
+        <ammoTypes>
+            <Ammo_STC_ClusterMissile>Bullet_STC_ClusterMissile</Ammo_STC_ClusterMissile>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- ==================== AmmoDef ==================== -->
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoBase">
+        <defName>Ammo_STC_ClusterMissile</defName>
+        <label>STC cluster missile</label>
+        <description>A heavy cluster missile that disperses submunitions across a wide area. Used by the STC Rain turret head.</description>
+        <statBases>
+            <Mass>8.0</Mass>
+            <Bulk>12.0</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+            <li>CE_AutoEnableCrafting</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoSTC_ClusterMissile</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Ammo/MortarShell/Shell</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <ammoClass>HighExplosive</ammoClass>
+    </ThingDef>
+
+    <!-- ==================== Projectile ThingDef ==================== -->
+
+    <!-- Cluster Missile projectile with fragment spawning -->
+    <ThingDef ParentName="BaseBulletCE">
+        <defName>Bullet_STC_ClusterMissile</defName>
+        <label>STC cluster missile</label>
+        <thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bomb</damageDef>
+            <speed>40</speed>
+            <damageAmountBase>40</damageAmountBase>
+            <explosionRadius>4</explosionRadius>
+            <armorPenetrationSharp>0</armorPenetrationSharp>
+            <armorPenetrationBlunt>0</armorPenetrationBlunt>
+        </projectile>
+    </ThingDef>
+
+    <!-- ==================== RecipeDef ==================== -->
+
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeAmmo_STC_ClusterMissile</defName>
+        <label>make STC cluster missiles x500</label>
+        <description>Craft 500 STC cluster missiles.</description>
+        <jobString>Making STC cluster missiles.</jobString>
+        <ingredients>
+            <li>
+                <filter><thingDefs><li>Steel</li></thingDefs></filter>
+                <count>40</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>FSX</li></thingDefs></filter>
+                <count>15</count>
+            </li>
+            <li>
+                <filter><thingDefs><li>ComponentIndustrial</li></thingDefs></filter>
+                <count>6</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>FSX</li>
+                <li>ComponentIndustrial</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <products>
+            <Ammo_STC_ClusterMissile>500</Ammo_STC_ClusterMissile>
+        </products>
+        <workAmount>10000</workAmount>
+    </RecipeDef>
+
+</Defs>

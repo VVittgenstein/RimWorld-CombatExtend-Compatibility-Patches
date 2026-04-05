@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    P1000 Ratte CE Ammo Configuration
+    ==================================
+    This file is conditionally loaded via LoadFolders.xml (IfModActive="slomow.P1000R").
+
+    All turret ammo sets reference existing Combat Extended definitions:
+      - P1000_MainTurret   → AmmoSet_28cmSpgrShell    (280mm naval HE)
+      - P1000_MausTurret   → AmmoSet_75x350mmR        (75mm Rheinmetall)
+      - P1000_MausFTTurret → AmmoSet_75x350mmR        (75mm Rheinmetall)
+      - P1000_FlakTurret   → AmmoSet_20x128mmOerlikon (20mm Oerlikon AA)
+      - P1000_Ball_Turret  → AmmoSet_762x51mmNATO     (7.62mm NATO MG)
+
+    Ammo binding is performed by CETurretDataDefModExtension in Patches/LandkreuzerP1000.xml.
+    No custom AmmoSetDef or AmmoDef entries are required.
+-->
+<Defs>
+
+    <!-- Ammo hyperlink helper: surfaces all P1000-relevant ammo families in
+         the in-game info panel when this conditional folder is loaded. -->
+    <ThingDef Abstract="True" Name="P1000_AmmoReference">
+        <descriptionHyperlinks>
+            <CombatExtended.AmmoSetDef>AmmoSet_28cmSpgrShell</CombatExtended.AmmoSetDef>
+            <CombatExtended.AmmoSetDef>AmmoSet_75x350mmR</CombatExtended.AmmoSetDef>
+            <CombatExtended.AmmoSetDef>AmmoSet_20x128mmOerlikon</CombatExtended.AmmoSetDef>
+            <CombatExtended.AmmoSetDef>AmmoSet_762x51mmNATO</CombatExtended.AmmoSetDef>
+        </descriptionHyperlinks>
+    </ThingDef>
+
+</Defs>
