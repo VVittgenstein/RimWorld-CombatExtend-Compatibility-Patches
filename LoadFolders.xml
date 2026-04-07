@@ -5,10 +5,10 @@
         <li>/</li>
 
         <!-- Conditional Defs: only load when both CE and the target mod are active -->
-        <li IfModActive="det.phaseweaponry">Defs/PhaseWeaponry</li>
-        <li IfModActive="feaurie.GreyscytheBionics">Defs/GreyscytheBionicsCatalogue</li>
-        <li IfModActive="feaurie.GreyscytheGenes">Defs/GreyscytheCybergenetics</li>
-        <li IfModActive="slomow.P1000R">Defs/LandkreuzerP1000</li>
-        <li IfModActive="slomow.SloTurrettCollec">Defs/SloTurretCollection</li>
+        <li IfModActive="det.phaseweaponry">ConditionalDefs/PhaseWeaponry</li>
+        <li IfModActive="feaurie.GreyscytheBionics">ConditionalDefs/GreyscytheBionicsCatalogue</li>
+        <li IfModActive="feaurie.GreyscytheGenes">ConditionalDefs/GreyscytheCybergenetics</li>
+        <li IfModActive="slomow.P1000R">ConditionalDefs/LandkreuzerP1000</li>
+        <li IfModActive="slomow.SloTurrettCollec">ConditionalDefs/SloTurretCollection</li>
     </v1.6>
 </loadFolders>

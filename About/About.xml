@@ -21,6 +21,7 @@ Requires Combat Extended. Each target mod's patches apply only when that mod is 
         <li>
             <packageId>CETeam.CombatExtended</packageId>
             <displayName>Combat Extended</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2890901044</steamWorkshopUrl>
         </li>
     </modDependencies>
 

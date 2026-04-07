@@ -55,10 +55,10 @@
             <li>AmmoSTC_IncendiaryFuel</li>
         </thingCategories>
         <graphicData>
-            <texPath>Things/Ammo/Incendiary/Regular</texPath>
+            <texPath>Things/Ammo/FuelCell/Incendiary</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
         </graphicData>
-        <ammoClass>Incendiary</ammoClass>
+        <ammoClass>IncendiaryFuel</ammoClass>
     </ThingDef>
 
     <!-- RecipeDef: industrial tier -->
@@ -119,7 +119,7 @@
             <li>AmmoSTC_FuseCharge</li>
         </thingCategories>
         <graphicData>
-            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <texPath>Things/Ammo/Charged/SmallRegular</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
         </graphicData>
         <ammoClass>Charged</ammoClass>

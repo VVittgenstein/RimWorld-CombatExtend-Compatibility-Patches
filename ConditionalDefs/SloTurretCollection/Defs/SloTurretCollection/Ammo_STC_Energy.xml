@@ -31,7 +31,7 @@
             <li>AmmoSTC_EnergyCore</li>
         </thingCategories>
         <graphicData>
-            <texPath>Things/Ammo/Charged/Regular</texPath>
+            <texPath>Things/Ammo/Charged/SmallRegular</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
         </graphicData>
         <ammoClass>Charged</ammoClass>
@@ -80,15 +80,6 @@
         <label>STC tesla charge</label>
         <ammoTypes>
             <Ammo_STC_EnergyCore>STC_Bullet_TeslaCoil</Ammo_STC_EnergyCore>
-        </ammoTypes>
-    </CombatExtended.AmmoSetDef>
-
-    <!-- Orbital Beam turret: VANILLA PRESERVED - ProjectileMultiple_Explosive -->
-    <CombatExtended.AmmoSetDef>
-        <defName>AmmoSet_STC_OrbitalCharge</defName>
-        <label>STC orbital charge</label>
-        <ammoTypes>
-            <Ammo_STC_EnergyCore>STC_bullet_OrbitalBeam</Ammo_STC_EnergyCore>
         </ammoTypes>
     </CombatExtended.AmmoSetDef>
 

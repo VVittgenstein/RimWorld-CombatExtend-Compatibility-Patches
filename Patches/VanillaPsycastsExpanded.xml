@@ -25,9 +25,9 @@
                     </value>
                 </li>
 
-                <!-- Op 3: Fix FireBreath damage - namespace VFECore not VEF.Weapons -->
+                <!-- Op 3: Fix FireBreath damage - VPE 1.6 moved class to VEF.Weapons namespace -->
                 <li Class="PatchOperationReplace">
-                    <xpath>Defs/VFECore.ExpandableProjectileDef[defName="VPE_FireBreath"]/projectile/damageAmountBase</xpath>
+                    <xpath>Defs/VEF.Weapons.ExpandableProjectileDef[defName="VPE_FireBreath"]/projectile/damageAmountBase</xpath>
                     <value>
                         <damageAmountBase>12</damageAmountBase>
                     </value>
@@ -35,7 +35,7 @@
 
                 <!-- Op 4: Fix FireBreath speed -->
                 <li Class="PatchOperationReplace">
-                    <xpath>Defs/VFECore.ExpandableProjectileDef[defName="VPE_FireBreath"]/projectile/speed</xpath>
+                    <xpath>Defs/VEF.Weapons.ExpandableProjectileDef[defName="VPE_FireBreath"]/projectile/speed</xpath>
                     <value>
                         <speed>53</speed>
                     </value>
@@ -43,7 +43,7 @@
 
                 <!-- Op 5: Fix IceBreathe speed -->
                 <li Class="PatchOperationReplace">
-                    <xpath>Defs/VFECore.ExpandableProjectileDef[defName="VPE_IceBreathe"]/projectile/speed</xpath>
+                    <xpath>Defs/VEF.Weapons.ExpandableProjectileDef[defName="VPE_IceBreathe"]/projectile/speed</xpath>
                     <value>
                         <speed>48</speed>
                     </value>

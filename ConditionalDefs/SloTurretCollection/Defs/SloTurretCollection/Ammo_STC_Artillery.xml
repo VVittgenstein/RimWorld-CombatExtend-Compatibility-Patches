@@ -53,10 +53,10 @@
             <li>AmmoSTC_HeavyShell</li>
         </thingCategories>
         <graphicData>
-            <texPath>Things/Ammo/MortarShell/Shell</texPath>
+            <texPath>Things/Ammo/Mortar/HE</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
         </graphicData>
-        <ammoClass>HighExplosive</ammoClass>
+        <ammoClass>GrenadeHE</ammoClass>
     </ThingDef>
 
     <!-- Heavy Shell Incendiary -->
@@ -76,10 +76,10 @@
             <li>AmmoSTC_HeavyShell</li>
         </thingCategories>
         <graphicData>
-            <texPath>Things/Ammo/MortarShell/Shell</texPath>
+            <texPath>Things/Ammo/Mortar/Incendiary</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
         </graphicData>
-        <ammoClass>Incendiary</ammoClass>
+        <ammoClass>GrenadeIncendiary</ammoClass>
     </ThingDef>
 
     <!-- Heavy Shell EMP -->
@@ -99,10 +99,10 @@
             <li>AmmoSTC_HeavyShell</li>
         </thingCategories>
         <graphicData>
-            <texPath>Things/Ammo/MortarShell/Shell</texPath>
+            <texPath>Things/Ammo/Mortar/EMP</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
         </graphicData>
-        <ammoClass>EMP</ammoClass>
+        <ammoClass>GrenadeEMP</ammoClass>
     </ThingDef>
 
     <!-- ==================== Projectile ThingDefs ==================== -->
@@ -295,10 +295,10 @@
             <li>AmmoSTC_ClusterMissile</li>
         </thingCategories>
         <graphicData>
-            <texPath>Things/Ammo/MortarShell/Shell</texPath>
+            <texPath>Things/Ammo/Mortar/HE</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
         </graphicData>
-        <ammoClass>HighExplosive</ammoClass>
+        <ammoClass>RocketHE</ammoClass>
     </ThingDef>
 
     <!-- ==================== Projectile ThingDef ==================== -->
